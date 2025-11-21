@@ -1,14 +1,8 @@
-# Data Science Club - VIT Bhopal# HnCC Website - Hackathon & Coding Club, BIT Sindri# Next.js + Tailwind CSS Example
+# Data Science Club - VIT Bhopal# 
 
 
 
 Official website for Data Science Club at VIT Bhopal University. Built with React.js and Tailwind CSS.
-
-
-
-## FeaturesOfficial website for HnCC (Hackathon & Coding Club) at BIT Sindri. Built with React.js and Tailwind CSS.This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
-
-
 
 - ⚡ React.js 18 with React Router v6
 
