@@ -15,14 +15,6 @@ const EventsData = [
   // },
 
   {
-    title: 'CODECAMP',
-    description:
-      'CodeCamp introduces programming basics in C++, Java, Python, and UI/UX, empowering beginners with essential coding and design skills.',
-    bgImage: '/events/codecamp.jpg',
-    link: 'https://www.instagram.com/p/DExFo9xTa2q/?igsh=MWwxcm1pMW10M3llcQ==',
-  },
-
-  {
     title: 'WAR OF WEB',
     description:
       'A web development contest is an event that consists of two rounds designed to showcase the ingenuity and prowess of web developers and designers.',
