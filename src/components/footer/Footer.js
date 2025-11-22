@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import BottomGlitter from '../StyledText/BottomGlitter';
 import Styles from './Footer.module.css';
+import SpookyPumpkins from '../PumpkinFooter/SpookyPumpkin';
 
 function Footer() {
   return (
-    <footer className={`${Styles.footer} container-70`}>
+    <footer className={`${Styles.footer} container-70`} style={{overflow : "hidden"}}>
       <div className="py-12 mt-20 sm:mt-4 md:mt-12">
         <h4 className="text-2xl mb-10 pl-3">Contacts</h4>
         <BottomGlitter text="Get In Touch" />
@@ -79,6 +80,7 @@ function Footer() {
           Crafted with&nbsp;<span className="text-2xl">♥</span>&nbsp;by Data Science Club Team.
         </h6>
       </div>
+      <SpookyPumpkins />
     </footer>
   );
 }
