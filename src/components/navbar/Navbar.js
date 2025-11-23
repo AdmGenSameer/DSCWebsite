@@ -18,10 +18,27 @@ function Navbar() {
 
   useEffect(() => {
     // Creating a dynamic parent div for the sidebar to act as portal's root
-    const div = document.createElement('div');
-    div.setAttribute('id', 'overlay');
-    document.querySelector('body').appendChild(div);
-    return () => div.remove();
+    // Check if overlay already exists to avoid duplicates
+    // NOTE: We don't remove this on cleanup because it's shared by multiple components
+    // (Notice and Sidebar both use it via createPortal)
+    // It will persist for the lifetime of the app
+    const overlayId = 'overlay';
+    let div = document.getElementById(overlayId);
+    if (!div) {
+      div = document.createElement('div');
+      div.setAttribute('id', overlayId);
+      const body = document.querySelector('body');
+      if (body) {
+        body.appendChild(div);
+      }
+    }
+    
+    // No cleanup needed - the overlay is persistent and shared
+    // Removing it would break other components that use it
+    return () => {
+      // Don't remove the overlay - it's shared by multiple components
+      // The overlay will persist for the app lifetime
+    };
   }, []);
 
   useEffect(() => {
