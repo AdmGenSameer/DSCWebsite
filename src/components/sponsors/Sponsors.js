@@ -6,13 +6,13 @@ function Sponsors() {
   const ref = useRef();
 
   const sponsors = [
-    { name: 'Geeks for Geeks', logo: '/sponsors/gfg.png' },
-    { name: 'Coding Ninjas', logo: '/sponsors/codingNinjas.jpeg' },
-    { name: 'Interview Cake', logo: '/sponsors/ic.png' },
-    { name: 'NSE', logo: '/sponsors/nse.png' },
-    { name: 'Physics Wallah', logo: '/sponsors/physics-wallah.jpg' },
-    { name: 'UN stop', logo: '/sponsors/un.jpg' },
-    { name: 'CloudyML', logo: '/sponsors/ml.jpeg' },
+    { id: 'gfg', name: 'Geeks for Geeks', logo: '/sponsors/gfg.png' },
+    { id: 'cn', name: 'Coding Ninjas', logo: '/sponsors/codingNinjas.jpeg' },
+    { id: 'ic', name: 'Interview Cake', logo: '/sponsors/ic.png' },
+    { id: 'nse', name: 'NSE', logo: '/sponsors/nse.png' },
+    { id: 'pw', name: 'Physics Wallah', logo: '/sponsors/physics-wallah.jpg' },
+    { id: 'un', name: 'UN stop', logo: '/sponsors/un.jpg' },
+    { id: 'ml', name: 'CloudyML', logo: '/sponsors/ml.jpeg' },
   ];
 
   useEffect(() => {

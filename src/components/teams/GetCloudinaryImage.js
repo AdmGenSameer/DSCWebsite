@@ -1,3 +1,5 @@
+// TODO: Move CLOUD_NAME to environment variable for better security and configurability
+// Usage: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME
 export const CLOUD_NAME = 'dwpdekzdb';
 
 export const getCloudinaryImage = (publicId, options = {}) => {

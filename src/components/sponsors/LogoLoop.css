@@ -19,20 +19,10 @@
 
 .sponsors-carousel::before {
   left: 0;
-  /* background: linear-gradient(
-    to right,
-    var(--color-background, #fcfcf900) 0%,
-    transparent 100%
-  ); */
 }
 
 .sponsors-carousel::after {
   right: 0;
-  /* background: linear-gradient(
-    to left,
-    var(--color-background, #fcfcf9) 0%,
-    transparent 100%
-  ); */
 }
 
 .carousel-container {
@@ -77,13 +67,11 @@
   min-height: 100%;
   object-fit: contain;
   border-radius: 10%;
-  /* filter: grayscale(100%); */
   opacity: 1;
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
 .sponsor-card:hover .sponsor-logo {
-  /* filter: grayscale(0%); */
   opacity: 1;
 }
 
@@ -95,38 +83,6 @@
     transform: translateX(-50%);
   }
 }
-
-/* Dark mode support */
-/* @media (prefers-color-scheme: dark) {
-  .sponsors-carousel {
-    background: var(--color-background, #1f2121);
-  }
-
-  .sponsors-carousel::before {
-    background: linear-gradient(
-      to right,
-      var(--color-background, #1f2121) 0%,
-      transparent 100%
-    );
-  }
-
-  .sponsors-carousel::after {
-    background: linear-gradient(
-      to left,
-      var(--color-background, #1f2121) 0%,
-      transparent 100%
-    );
-  }
-
-  .sponsor-card {
-    background: var(--color-surface, #262828);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  .sponsor-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  }
-} */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

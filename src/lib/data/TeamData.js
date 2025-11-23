@@ -896,7 +896,7 @@ export const facultyCoordinator = [
     name: 'Dr. Velmurugan',
     teamName: 'Faculty Coordinator',
     role: 'Coordinator',
-    image: 'velmurugansir_hpdqwt',
+    image: 'velmurugansir_hpdqwt.jpg',
   },
 ];
 

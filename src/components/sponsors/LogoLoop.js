@@ -14,8 +14,13 @@ function SponsorsCarousel({ sponsors }) {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {duplicatedSponsors.map((sponsor) => (
-            <div key={sponsor.id || sponsor.name} className="sponsor-card">
+          {duplicatedSponsors.map((sponsor, index) => (
+            <div
+              key={`sponsor-${sponsor.id}-${
+                index < sponsors.length ? 'first' : 'second'
+              }`}
+              className="sponsor-card"
+            >
               <img
                 src={sponsor.logo}
                 alt={sponsor.name}
