@@ -28,9 +28,8 @@ function Sidebar({ isMounted, unmount }) {
         created due to no scrollbar by giving the document an extra right padding according to the extra created space
       */
       if (documentWidthRef.current !== document.documentElement.clientWidth) {
-        document.documentElement.style.paddingRight = `${
-          document.documentElement.clientWidth - documentWidthRef.current
-        }px`;
+        document.documentElement.style.paddingRight = `${document.documentElement.clientWidth - documentWidthRef.current
+          }px`;
       }
     } else if (!isMounted && isTransitioning) {
       timeoutId = setTimeout(() => {
@@ -56,13 +55,19 @@ function Sidebar({ isMounted, unmount }) {
 
   return createPortal(
     <section
-      className={`${isTransitioning && isMounted ? styles.active : ''} ${
-        styles.navbarWrapper
-      }`.trim()}
+      className={`${isTransitioning && isMounted ? styles.active : ''} ${styles.navbarWrapper
+        }`.trim()}
     >
       <div className={styles.navbar}>
         <div>
-          <Link to="/" className="flex items-center" onClick={unmount}>
+          <Link
+            to="/"
+            className="flex items-center"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'instant' });
+              unmount();
+            }}
+          >
             <img src={Logo} alt="HnCC" height="60" width="60" />
           </Link>
         </div>
@@ -72,22 +77,54 @@ function Sidebar({ isMounted, unmount }) {
       </div>
 
       <div id="navList" className={styles.navItems}>
-        <Link to="/about" className={styles.navLink} onClick={unmount}>
+        <Link
+          to="/about"
+          className={styles.navLink}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            unmount();
+          }}
+        >
           About Us
         </Link>
-        <Link to="/teams" className={styles.navLink} onClick={unmount}>
+        <Link
+          to="/teams"
+          className={styles.navLink}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            unmount();
+          }}
+        >
           Team
         </Link>
-        <Link to="/alumni" className={styles.navLink} onClick={unmount}>
-          Alumni
-        </Link>
-        <Link to="/contact" className={styles.navLink} onClick={unmount}>
+        <Link
+          to="/contact"
+          className={styles.navLink}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            unmount();
+          }}
+        >
           Contact Us
         </Link>
-        <Link to="/events" className={styles.navLink} onClick={unmount}>
+        <Link
+          to="/events"
+          className={styles.navLink}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            unmount();
+          }}
+        >
           Events
         </Link>
-        <Link to="/faqs" className={styles.navLink} onClick={unmount}>
+        <Link
+          to="/faqs"
+          className={styles.navLink}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            unmount();
+          }}
+        >
           FAQs
         </Link>
         <a
@@ -99,8 +136,8 @@ function Sidebar({ isMounted, unmount }) {
           <Button
             style={{ border: 'none' }}
             className="bg-primary-light text-primary hover:text-primary-light xs:!py-3"
-            /* For Christmas theme */
-            // className="bg-primary-light text-primary xs:!py-3"
+          /* For Christmas theme */
+          // className="bg-primary-light text-primary xs:!py-3"
           >
             <span style={SpanStyle}>Join Us</span>
           </Button>

@@ -32,7 +32,7 @@ function Navbar() {
         body.appendChild(div);
       }
     }
-    
+
     // No cleanup needed - the overlay is persistent and shared
     // Removing it would break other components that use it
     return () => {
@@ -75,7 +75,11 @@ function Navbar() {
   return (
     <section id="navbar" className={`${styles.navbar}`}>
       <div>
-        <Link to="/" className="flex items-center">
+        <Link
+          to="/"
+          className="flex items-center"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+        >
           <img src={Logo} alt="HnCC" height="60" width="60" />
           <h2 id="hnccTitle" className={styles.navTitle}>
             Data Science Club
@@ -83,22 +87,39 @@ function Navbar() {
         </Link>
       </div>
       <div id="navList" className={styles.navbarList}>
-        <Link to="/about" className={styles.navLink}>
+        <Link
+          to="/about"
+          className={styles.navLink}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+        >
           ABOUT US
         </Link>
-        <Link to="/teams" className={styles.navLink}>
+        <Link
+          to="/teams"
+          className={styles.navLink}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+        >
           TEAM
         </Link>
-        <Link to="/alumni" className={styles.navLink}>
-          ALUMNI
-        </Link>
-        <Link to="/events" className={styles.navLink}>
+        <Link
+          to="/events"
+          className={styles.navLink}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+        >
           EVENTS
         </Link>
-        <Link to="/faqs" className={styles.navLink}>
+        <Link
+          to="/faqs"
+          className={styles.navLink}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+        >
           FAQs
         </Link>
-        <Link to="/contact" className={styles.navLink}>
+        <Link
+          to="/contact"
+          className={styles.navLink}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+        >
           CONTACT US
         </Link>
         <a
