@@ -30,6 +30,34 @@ function HalloweenBackground({ children }) {
       size: 'small',
       mobile: false,
     },
+    {
+      id: 'pumpkin-6',
+      top: '220vh',
+      left: '85%',
+      size: 'medium',
+      mobile: false,
+    },
+    {
+      id: 'pumpkin-7',
+      top: '250vh',
+      left: '12%',
+      size: 'small',
+      mobile: false,
+    },
+    {
+      id: 'pumpkin-8',
+      top: '280vh',
+      left: '90%',
+      size: 'small',
+      mobile: false,
+    },
+    {
+      id: 'pumpkin-9',
+      top: '310vh',
+      left: '8%',
+      size: 'medium',
+      mobile: false,
+    },
   ];
 
   // Random spider web positions - better distributed across the page
@@ -40,6 +68,8 @@ function HalloweenBackground({ children }) {
     { id: 'web-4', top: '140vh', right: '12%' },
     { id: 'web-5', top: '180vh', left: '8%' },
     { id: 'web-6', top: '220vh', right: '10%' },
+    { id: 'web-7', top: '260vh', left: '18%' },
+    { id: 'web-8', top: '300vh', right: '15%' },
   ];
 
   return (
@@ -71,7 +101,7 @@ function HalloweenBackground({ children }) {
       ))}
 
       {/* Flying bats (ambient) */}
-      <FlyingBats count={12} />
+      <FlyingBats count={18} />
 
       {/* Interactive pumpkins */}
       <div className={styles.pumpkinsLayer}>
