@@ -113,7 +113,7 @@ function PumpkinTransition({ onComplete }) {
       // CRITICAL: Unpin and kill ScrollTrigger BEFORE killing timeline
       // This ensures DOM nodes are restored to their original positions
       // We need to do this synchronously to prevent React from trying to remove pinned nodes
-      
+
       // First, refresh ScrollTrigger to ensure all pins are released
       try {
         ScrollTrigger.refresh();
@@ -152,14 +152,8 @@ function PumpkinTransition({ onComplete }) {
         const allTriggers = ScrollTrigger.getAll();
         allTriggers.forEach((trigger) => {
           try {
-            // Avoid assigning directly to a function parameter (ESLint no-param-reassign).
-            // Alias the parameter to a local const and operate on that local instead.
-            const tr = trigger;
-            if (tr.vars && tr.vars.trigger === container) {
-              if (tr.pin) {
-                tr.pin = null;
-              }
-              tr.kill();
+            if (trigger.vars && trigger.vars.trigger === container) {
+              trigger.kill();
             }
           } catch (triggerError) {
             // Ignore individual trigger errors

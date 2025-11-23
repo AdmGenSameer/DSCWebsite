@@ -1,61 +1,20 @@
-import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
-import Style from './Team.module.css';
+import React from 'react';
+import './TeamCard.css';
 
-const ICON_SIZE = 28;
-
-function TeamCard({ name, title, company, socials, imageSrc }) {
+function TeamCard({ image, name, role = 'Lead' }) {
   return (
-    <div className={Style.card}>
-      <div className="z-10 w-full text-center h-2/3 mb-18 mt-4 overflow-hidden rounded-lg">
-        <img
-          className="z-10 rounded-lg object-cover object-top w-full h-full"
-          src={imageSrc}
-          alt={name}
-          loading="lazy"
-        />
-      </div>
-      <div className="z-10 text-center my-5">
-        <h3 className="text-xl">{name}</h3>
-        <h4>{title}</h4>
-        <h2>{company}</h2>
-      </div>
-      <div className={Style.socials}>
-        {socials.gb || socials.email || socials.linkedin ? (
-          <>
-            {socials.gb && (
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`https://github.com/${socials.gb}/`}
-              >
-                <FaGithub size={ICON_SIZE} width={ICON_SIZE} />
-              </a>
-            )}
+    <div className="team-card">
+      <div className="card-shine" />
 
-            {socials.linkedin && (
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`https://www.linkedin.com/in/${socials.linkedin}/`}
-              >
-                <FaLinkedin size={ICON_SIZE} />
-              </a>
-            )}
-            {socials.email && (
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`mailto:${socials.email}`}
-              >
-                <FaEnvelope size={ICON_SIZE} />
-              </a>
-            )}
-          </>
-        ) : (
-          <span style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Socially Invisible
-          </span>
-        )}
+      <div className="card-image-container p-2">
+        <img src={image} alt={name} className="card-image rounded-lg" />
+      </div>
+
+      <div className="card-content">
+        <h3 className="card-name">{name}</h3>
+        <div className="divider flex flex-row justify-between">
+          <p className="card-role">{role}</p>
+        </div>
       </div>
     </div>
   );

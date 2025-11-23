@@ -32,7 +32,7 @@ function Navbar() {
         body.appendChild(div);
       }
     }
-    
+
     // No cleanup needed - the overlay is persistent and shared
     // Removing it would break other components that use it
     return () => {
