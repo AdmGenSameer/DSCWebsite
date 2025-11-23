@@ -15,9 +15,9 @@ function Screen({ children }) {
         cursor.style.left = `${e.clientX}px`;
       }
     };
-    
+
     overlayScreen.addEventListener('mousemove', callback);
-    
+
     return () => {
       const element = document.getElementById('overlayScreen');
       if (element) {

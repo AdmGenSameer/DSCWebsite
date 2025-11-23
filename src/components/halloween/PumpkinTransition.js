@@ -113,7 +113,7 @@ function PumpkinTransition({ onComplete }) {
       // CRITICAL: Unpin and kill ScrollTrigger BEFORE killing timeline
       // This ensures DOM nodes are restored to their original positions
       // We need to do this synchronously to prevent React from trying to remove pinned nodes
-      
+
       // First, refresh ScrollTrigger to ensure all pins are released
       try {
         ScrollTrigger.refresh();

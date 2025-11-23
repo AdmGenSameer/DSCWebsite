@@ -8,7 +8,7 @@ export const getCloudinaryImage = (publicId, options = {}) => {
     format = 'auto',
     crop = 'fill',
     gravity = 'face',
-    effects = []
+    effects = [],
   } = options;
 
   const transformations = [
@@ -18,7 +18,7 @@ export const getCloudinaryImage = (publicId, options = {}) => {
     `g_${gravity}`,
     `q_${quality}`,
     `f_${format}`,
-    ...effects
+    ...effects,
   ].join(',');
   return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${transformations}/${publicId}`;
 };

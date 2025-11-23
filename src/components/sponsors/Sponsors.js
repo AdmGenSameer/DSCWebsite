@@ -13,7 +13,6 @@ function Sponsors() {
     { name: 'Physics Wallah', logo: '/sponsors/physics-wallah.jpg' },
     { name: 'UN stop', logo: '/sponsors/un.jpg' },
     { name: 'CloudyML', logo: '/sponsors/ml.jpeg' },
-
   ];
 
   useEffect(() => {

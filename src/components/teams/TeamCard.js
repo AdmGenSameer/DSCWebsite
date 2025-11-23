@@ -1,17 +1,13 @@
 import React from 'react';
 import './TeamCard.css';
 
-function TeamCard({ image, name, role = "Lead" }) {
+function TeamCard({ image, name, role = 'Lead' }) {
   return (
     <div className="team-card">
       <div className="card-shine" />
 
       <div className="card-image-container p-2">
-        <img
-          src={image}
-          alt={name}
-          className="card-image rounded-lg"
-        />
+        <img src={image} alt={name} className="card-image rounded-lg" />
       </div>
 
       <div className="card-content">
@@ -20,9 +16,8 @@ function TeamCard({ image, name, role = "Lead" }) {
           <p className="card-role">{role}</p>
         </div>
       </div>
-
     </div>
   );
-};
+}
 
 export default TeamCard;
