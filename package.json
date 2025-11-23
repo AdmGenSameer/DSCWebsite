@@ -8,8 +8,8 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "style:all": "yarn run style:lint && npm run style:prettier",
-    "style:lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
-    "style:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+    "style:lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"lib/**/*.{js,jsx,ts,tsx}\"",
+    "style:prettier": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\" \"lib/**/*.{js,jsx,ts,tsx}\"",
     "make-pretty": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky install"
   },
@@ -47,6 +47,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
+    "lint-staged": "^16.2.7",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "react-scripts": "^5.0.1",
@@ -63,6 +64,18 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "lib/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
     ]
   }
 }
