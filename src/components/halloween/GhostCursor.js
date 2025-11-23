@@ -3,56 +3,25 @@ import styles from './GhostCursor.module.css';
 
 function GhostCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    let animationFrameId;
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
+    // Hide the default cursor
+    document.body.style.cursor = 'none';
 
     const handleMouseMove = (e) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
-
-      if (!isVisible) {
-        setIsVisible(true);
-        currentX = targetX;
-        currentY = targetY;
-      }
-    };
-
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
-
-    const animate = () => {
-      // Smooth follow effect with easing
-      const ease = 0.15;
-      currentX += (targetX - currentX) * ease;
-      currentY += (targetY - currentY) * ease;
-
       setPosition({
-        x: currentX,
-        y: currentY,
+        x: e.clientX,
+        y: e.clientY,
       });
-
-      animationFrameId = requestAnimationFrame(animate);
     };
 
     document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseleave', handleMouseLeave);
-    animationFrameId = requestAnimationFrame(animate);
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      cancelAnimationFrame(animationFrameId);
+      document.body.style.cursor = 'auto';
     };
-  }, [isVisible]);
-
-  if (!isVisible) return null;
+  }, []);
 
   return (
     <div

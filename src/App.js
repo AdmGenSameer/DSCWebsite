@@ -8,10 +8,12 @@ import Faqs from './pages/Faqs';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
+import GhostCursor from './components/halloween/GhostCursor';
 
 function App() {
   return (
     <>
+      <GhostCursor />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />

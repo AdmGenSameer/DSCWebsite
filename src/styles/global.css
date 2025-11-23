@@ -12,6 +12,7 @@
   color: #fff;
   font-family: 'Overpass', sans-serif;
   scroll-behavior: smooth;
+  cursor: none !important;
 }
 
 body {

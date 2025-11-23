@@ -2,26 +2,32 @@ import React from 'react';
 import styles from './HalloweenBackground.module.css';
 import FlyingBats from './FlyingBats';
 import InteractivePumpkin from './InteractivePumpkin';
-import GhostCursor from './GhostCursor';
 import SpiderWeb from './SpiderWeb';
 
 function HalloweenBackground({ children }) {
   // Strategic pumpkin positions - distributed throughout the page
   const pumpkinPositions = [
-    { id: 'pumpkin-1', top: '15vh', left: '8%', size: 'medium', mobile: true },
-    { id: 'pumpkin-2', top: '50vh', left: '90%', size: 'large', mobile: true },
+    { id: 'pumpkin-1', top: '25vh', left: '8%', size: 'medium', mobile: true },
+    { id: 'pumpkin-2', top: '45vh', left: '90%', size: 'large', mobile: true },
     {
       id: 'pumpkin-3',
-      top: '100vh',
+      top: '60vh',
       left: '10%',
       size: 'small',
       mobile: false,
     },
     {
       id: 'pumpkin-4',
-      top: '140vh',
+      top: '75vh',
       left: '88%',
       size: 'medium',
+      mobile: false,
+    },
+    {
+      id: 'pumpkin-5',
+      top: '35vh',
+      left: '50%',
+      size: 'small',
       mobile: false,
     },
   ];
@@ -63,9 +69,6 @@ function HalloweenBackground({ children }) {
 
       {/* Main content */}
       <div className={styles.contentWrapper}>{children}</div>
-
-      {/* Ghost cursor */}
-      <GhostCursor />
     </div>
   );
 }
