@@ -4,8 +4,8 @@
   height: 200px;
   pointer-events: none;
   z-index: 2;
-  opacity: 0.6;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  opacity: 0.8;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
 }
 
 .webContainer.top-left {
@@ -36,15 +36,15 @@
 }
 
 .webLine {
-  stroke: rgba(200, 200, 200, 0.4);
-  stroke-width: 1;
+  stroke: rgba(230, 230, 230, 0.7);
+  stroke-width: 1.5;
   fill: none;
   animation: webShimmer 3s ease-in-out infinite;
 }
 
 .webCircle {
-  stroke: rgba(200, 200, 200, 0.3);
-  stroke-width: 1;
+  stroke: rgba(240, 240, 240, 0.6);
+  stroke-width: 1.5;
   fill: none;
   animation: webShimmer 3s ease-in-out infinite;
 }
@@ -52,10 +52,10 @@
 @keyframes webShimmer {
   0%,
   100% {
-    opacity: 0.3;
+    opacity: 0.6;
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.9;
   }
 }
 

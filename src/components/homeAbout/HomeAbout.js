@@ -26,43 +26,45 @@ function HomeAbout() {
       ref={ref}
       className="container-70 my-16 py-16 fadeonscroll sm:transform-none sm:opacity-100 relative overflow-hidden"
     >
-      {/* Halloween Decorations - Subtle Background Elements */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-20">
-        {/* Left side subtle decorations */}
-        <div className="absolute left-0 top-1/4 w-24 md:w-16 sm:w-12">
-          <div
-            className="absolute top-0 left-4 animate-pulse"
-            style={{ animationDuration: '4s' }}
-          >
-            <span className="text-5xl md:text-4xl sm:text-3xl drop-shadow-[0_0_8px_rgba(255,165,0,0.3)]">
+      {/* Halloween Decorations - Enhanced Pumpkin beside text */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {/* Large Pumpkin beside "Design Develop Code" text area - Left side */}
+        <div className="absolute left-[-80px] top-[15%] w-64 md:w-48 sm:w-32 lg:left-[-100px] xl:left-[-120px]">
+          <div className="animate-pulse" style={{ animationDuration: '3s' }}>
+            <span className="text-[180px] md:text-[140px] sm:text-[100px] drop-shadow-[0_0_30px_rgba(255,140,0,0.6)] opacity-70 block">
               🎃
             </span>
           </div>
-          <div className="absolute top-20 left-2 opacity-40">
-            <div className="w-12 h-12 md:w-10 md:h-10 border border-white/20 rounded-full relative">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-px bg-white/20 absolute" />
-                <div className="h-full w-px bg-white/20 absolute" />
-                <div className="w-full h-px bg-white/20 absolute rotate-45" />
-                <div className="w-full h-px bg-white/20 absolute -rotate-45" />
-              </div>
-            </div>
+        </div>
+
+        {/* Right side - Floating elements in free space */}
+        <div className="absolute right-[-60px] top-[40%] w-48 md:w-36 sm:w-24 lg:right-[-80px] xl:right-[-100px]">
+          <div
+            className="animate-pulse"
+            style={{ animationDuration: '4s', animationDelay: '1s' }}
+          >
+            <span className="text-[140px] md:text-[110px] sm:text-[80px] drop-shadow-[0_0_25px_rgba(255,165,0,0.5)] opacity-60 block">
+              🎃
+            </span>
           </div>
         </div>
 
-        {/* Right side subtle decorations */}
-        <div className="absolute right-0 top-1/3 w-24 md:w-16 sm:w-12">
-          <div
-            className="absolute top-0 right-4 animate-pulse"
-            style={{ animationDuration: '5s', animationDelay: '1s' }}
+        {/* Small decorative elements */}
+        <div className="absolute right-[10%] top-[10%] opacity-30">
+          <span
+            className="text-4xl md:text-3xl sm:text-2xl animate-bounce"
+            style={{ animationDuration: '5s' }}
           >
-            <span className="text-5xl md:text-4xl sm:text-3xl drop-shadow-[0_0_8px_rgba(255,165,0,0.3)]">
-              👻
-            </span>
-          </div>
-          <div className="absolute top-24 right-2 opacity-40">
-            <span className="text-3xl md:text-2xl sm:text-xl">🦇</span>
-          </div>
+            🦇
+          </span>
+        </div>
+        <div className="absolute left-[15%] bottom-[15%] opacity-30">
+          <span
+            className="text-5xl md:text-4xl sm:text-3xl animate-pulse"
+            style={{ animationDuration: '6s', animationDelay: '2s' }}
+          >
+            👻
+          </span>
         </div>
       </div>
 
