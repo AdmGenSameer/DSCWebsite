@@ -1,2 +1,8 @@
 node_modules
+build
+public
+assets
+video
+dist
+vendor
 __generated__

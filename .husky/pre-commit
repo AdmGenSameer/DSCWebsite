@@ -1,4 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+# Run lint-staged to lint only staged source files (fast & safe)
+# Uses the local lint-staged binary (installed as a devDependency)
+npx --no -- lint-staged
+
 yarn run style:lint
