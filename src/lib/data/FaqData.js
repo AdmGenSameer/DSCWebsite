@@ -211,9 +211,8 @@ const options = [
     body: (
       <>
         Hey, you can get a list of all our members at{' '}
-        <Link to="/teams">HnCC Team Page.</Link>{' '}
-        Keep in touch with your Seniors and Alumni, It is a very good culture.
-        You will gain a lot.
+        <Link to="/teams">HnCC Team Page.</Link> Keep in touch with your Seniors
+        and Alumni, It is a very good culture. You will gain a lot.
       </>
     ),
   },

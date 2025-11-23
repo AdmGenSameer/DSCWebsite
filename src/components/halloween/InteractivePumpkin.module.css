@@ -15,11 +15,11 @@
   .small {
     transform: scale(0.6);
   }
-  
+
   .medium {
     transform: scale(0.75);
   }
-  
+
   .large {
     transform: scale(0.85);
   }
@@ -29,11 +29,11 @@
   .small {
     transform: scale(0.5);
   }
-  
+
   .medium {
     transform: scale(0.6);
   }
-  
+
   .large {
     transform: scale(0.7);
   }
@@ -69,7 +69,12 @@
   transform: translate(-50%, -50%);
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle, rgba(255, 100, 0, 0.4) 0%, rgba(255, 140, 0, 0.2) 40%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 100, 0, 0.4) 0%,
+    rgba(255, 140, 0, 0.2) 40%,
+    transparent 70%
+  );
   border-radius: 50%;
   animation: glowPulse 2s ease-in-out infinite;
   pointer-events: none;
@@ -85,10 +90,14 @@
   align-items: center;
   justify-content: center;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
-  background: radial-gradient(ellipse at 50% 50%, #ff8c00 0%, #ff6600 60%, #cc5500 100%);
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    #ff8c00 0%,
+    #ff6600 60%,
+    #cc5500 100%
+  );
   border-radius: 50% / 45%;
-  box-shadow: 
-    inset -10px 0 20px rgba(0, 0, 0, 0.3),
+  box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.3),
     inset 10px 0 20px rgba(255, 160, 50, 0.3),
     inset 0 -10px 15px rgba(0, 0, 0, 0.2);
 }
@@ -97,11 +106,12 @@
   position: absolute;
   width: 2px;
   height: 85%;
-  background: linear-gradient(to bottom, 
-    transparent 0%, 
-    rgba(0, 0, 0, 0.2) 15%, 
-    rgba(0, 0, 0, 0.3) 50%, 
-    rgba(0, 0, 0, 0.2) 85%, 
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 15%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.2) 85%,
     transparent 100%
   );
   border-radius: 2px;
@@ -169,20 +179,18 @@
   height: 20px;
   background: #ffee55;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  box-shadow: 
-    0 0 15px rgba(255, 238, 85, 1),
-    0 0 25px rgba(255, 200, 0, 0.8),
+  box-shadow: 0 0 15px rgba(255, 238, 85, 1), 0 0 25px rgba(255, 200, 0, 0.8),
     inset 0 0 8px rgba(255, 255, 150, 1);
   animation: eyeGlow 1.5s ease-in-out infinite alternate;
   filter: brightness(1.5);
 }
 
-.eye[data-eye="left"] {
+.eye[data-eye='left'] {
   left: 22%;
   transform: rotate(-10deg);
 }
 
-.eye[data-eye="right"] {
+.eye[data-eye='right'] {
   right: 22%;
   transform: rotate(10deg);
 }
@@ -196,8 +204,7 @@
   height: 13px;
   background: #ffee55;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  box-shadow: 
-    0 0 12px rgba(255, 238, 85, 0.9),
+  box-shadow: 0 0 12px rgba(255, 238, 85, 0.9),
     inset 0 0 6px rgba(255, 255, 150, 1);
   filter: brightness(1.4);
 }
@@ -211,8 +218,7 @@
   height: 20px;
   background: #ffee55;
   border-radius: 0 0 50% 50%;
-  box-shadow: 
-    0 0 15px rgba(255, 238, 85, 0.9),
+  box-shadow: 0 0 15px rgba(255, 238, 85, 0.9),
     inset 0 -3px 8px rgba(255, 255, 150, 1);
   display: flex;
   justify-content: space-around;
@@ -231,7 +237,8 @@
 
 /* Animations */
 @keyframes pumpkinFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(-2deg);
   }
   50% {
@@ -240,7 +247,8 @@
 }
 
 @keyframes pumpkinShake {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1.15) rotate(0deg);
   }
   25% {
@@ -257,11 +265,13 @@
 @media (hover: none) and (pointer: coarse) {
   /* Touch devices - make pumpkins more obviously interactive */
   .pumpkinContainer {
-    animation: pumpkinFloat 2.5s ease-in-out infinite, pumpkinPulse 3s ease-in-out infinite;
+    animation: pumpkinFloat 2.5s ease-in-out infinite,
+      pumpkinPulse 3s ease-in-out infinite;
   }
-  
+
   @keyframes pumpkinPulse {
-    0%, 100% {
+    0%,
+    100% {
       filter: brightness(1);
     }
     50% {
@@ -286,7 +296,8 @@
 }
 
 @keyframes glowPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.6;
     transform: translate(-50%, -50%) scale(1);
   }
@@ -298,16 +309,12 @@
 
 @keyframes eyeGlow {
   0% {
-    box-shadow: 
-      0 0 15px rgba(255, 238, 85, 0.9),
-      0 0 25px rgba(255, 200, 0, 0.7),
-      inset 0 0 8px rgba(255, 255, 150, 1);
+    box-shadow: 0 0 15px rgba(255, 238, 85, 0.9),
+      0 0 25px rgba(255, 200, 0, 0.7), inset 0 0 8px rgba(255, 255, 150, 1);
     filter: brightness(1.4);
   }
   100% {
-    box-shadow: 
-      0 0 25px rgba(255, 238, 85, 1),
-      0 0 35px rgba(255, 200, 0, 1),
+    box-shadow: 0 0 25px rgba(255, 238, 85, 1), 0 0 35px rgba(255, 200, 0, 1),
       inset 0 0 12px rgba(255, 255, 200, 1);
     filter: brightness(1.8);
   }
@@ -367,19 +374,18 @@
     opacity: 1;
   }
   100% {
-    transform: 
-      translate(
+    transform: translate(
         calc(cos(var(--angle)) * var(--distance)),
         calc(sin(var(--angle)) * var(--distance))
       )
-      rotate(var(--rotation))
-      scale(1);
+      rotate(var(--rotation)) scale(1);
     opacity: 0;
   }
 }
 
 @keyframes burstFlap {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-50%) scaleY(1);
   }
   50% {

@@ -50,7 +50,8 @@
 }
 
 @keyframes webShimmer {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
   }
   50% {
@@ -148,18 +149,19 @@
   top: 18px;
 }
 
-.spiderLeg[style*="left"] {
+.spiderLeg[style*='left'] {
   left: -2px;
   transform: rotate(var(--rotation));
 }
 
-.spiderLeg[style*="right"] {
+.spiderLeg[style*='right'] {
   right: -2px;
   transform: rotate(calc(-1 * var(--rotation))) scaleX(-1);
 }
 
 @keyframes legWiggle {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(var(--rotation));
   }
   50% {
@@ -168,7 +170,8 @@
 }
 
 @keyframes spiderCrawl {
-  0%, 100% {
+  0%,
+  100% {
     top: 30%;
     left: 50%;
   }
@@ -192,12 +195,12 @@
     width: 150px;
     height: 150px;
   }
-  
+
   .webContainer.top-left,
   .webContainer.top-right {
     top: 30px;
   }
-  
+
   .webContainer.bottom-left,
   .webContainer.bottom-right {
     display: none;

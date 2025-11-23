@@ -25,8 +25,11 @@
   left: -2rem;
   width: 100px;
   height: 100px;
-  background-image:
-    radial-gradient(circle, rgba(255, 107, 53, 0.3) 1.5px, transparent 1.5px),
+  background-image: radial-gradient(
+      circle,
+      rgba(255, 107, 53, 0.3) 1.5px,
+      transparent 1.5px
+    ),
     radial-gradient(circle, rgba(255, 107, 53, 0.2) 1px, transparent 1px);
   background-size: 25px 25px, 50px 50px;
   background-position: 0 0, 12px 12px;
@@ -50,7 +53,6 @@
 }
 
 @keyframes webSway {
-
   0%,
   100% {
     transform: rotate(-2deg);
@@ -62,7 +64,6 @@
 }
 
 @keyframes batFly {
-
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
@@ -154,7 +155,6 @@
 }
 
 @keyframes floatPumpkin {
-
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
@@ -166,7 +166,6 @@
 }
 
 @keyframes floatBat {
-
   0%,
   100% {
     transform: translateY(0) translateX(0) rotate(0deg);
@@ -186,7 +185,6 @@
 }
 
 @keyframes floatSpider {
-
   0%,
   100% {
     transform: translateY(0) translateX(0);
@@ -202,7 +200,6 @@
 }
 
 @media (max-width: 768px) {
-
   .pumpkin,
   .bat,
   .spider {
@@ -277,7 +274,11 @@ button.navButton,
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 53, 0.3) 0%,
+    transparent 70%
+  );
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -297,7 +298,6 @@ button.navButton:hover,
 }
 
 @keyframes pumpkinPulse {
-
   0%,
   100% {
     transform: scale(1);
@@ -384,14 +384,19 @@ button.navButton:focus,
   flex-shrink: 0;
   border-radius: 1.5rem;
   overflow: visible;
-  box-shadow: 0 10px 15px -3px rgba(139, 69, 19, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(139, 69, 19, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.3);
   transition: all 0.5s;
   width: 350px;
   height: 450px;
   animation: fadeInUp 0.6s ease-out both;
   cursor: pointer;
   border: 2px solid transparent;
-  background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(75, 0, 130, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(139, 69, 19, 0.05),
+    rgba(75, 0, 130, 0.05)
+  );
 }
 
 .card::before {
@@ -415,13 +420,13 @@ button.navButton:focus,
 }
 
 .card:hover {
-  box-shadow: 0 25px 50px -12px rgba(255, 107, 53, 0.4), 0 0 30px rgba(139, 69, 19, 0.3);
+  box-shadow: 0 25px 50px -12px rgba(255, 107, 53, 0.4),
+    0 0 30px rgba(139, 69, 19, 0.3);
   border-color: rgba(255, 107, 53, 0.5);
   transform: translateY(-5px);
 }
 
 @keyframes spookyGlow {
-
   0%,
   100% {
     background-position: 0% 50%;
@@ -460,7 +465,6 @@ button.navButton:focus,
 }
 
 @keyframes pulse {
-
   0%,
   100% {
     opacity: 1;
@@ -490,7 +494,12 @@ button.navButton:focus,
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to top, rgba(139, 69, 19, 0.85), rgba(75, 0, 130, 0.5), transparent);
+  background: linear-gradient(
+    to top,
+    rgba(139, 69, 19, 0.85),
+    rgba(75, 0, 130, 0.5),
+    transparent
+  );
   opacity: 0;
   transition: all 0.5s;
 }
@@ -502,9 +511,16 @@ button.navButton:focus,
   left: 0;
   right: 0;
   bottom: 0;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 107, 53, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(139, 69, 19, 0.1) 0%,
+      transparent 50%
+    );
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -554,7 +570,6 @@ button.navButton:focus,
 }
 
 @keyframes pumpkinGlow {
-
   0%,
   100% {
     box-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
@@ -592,7 +607,6 @@ button.navButton:focus,
 }
 
 @keyframes batHover {
-
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
@@ -674,7 +688,12 @@ button.navButton:focus,
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to top, rgba(139, 69, 19, 0.8), rgba(75, 0, 130, 0.4), transparent);
+  background: linear-gradient(
+    to top,
+    rgba(139, 69, 19, 0.8),
+    rgba(75, 0, 130, 0.4),
+    transparent
+  );
   display: flex;
   align-items: flex-end;
 }
@@ -693,7 +712,11 @@ button.navButton:focus,
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(ellipse at center, rgba(75, 0, 130, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(75, 0, 130, 0.95) 0%,
+    rgba(0, 0, 0, 0.98) 100%
+  );
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -708,8 +731,7 @@ button.navButton:focus,
   left: 0;
   right: 0;
   bottom: 0;
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 Q 20 5, 30 10 T 50 10' stroke='rgba(255,107,53,0.1)' fill='none'/%3E%3C/svg%3E"),
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 Q 20 5, 30 10 T 50 10' stroke='rgba(255,107,53,0.1)' fill='none'/%3E%3C/svg%3E"),
     url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='2' fill='rgba(255,107,53,0.15)'/%3E%3C/svg%3E");
   background-size: 200px 200px, 100px 100px;
   background-position: 0 0, 50px 50px;

@@ -1,7 +1,11 @@
 .eventsSection {
   position: relative;
   padding: 80px 20px;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.9) 0%, rgba(20, 10, 30, 0.95) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.9) 0%,
+    rgba(20, 10, 30, 0.95) 100%
+  );
   overflow: hidden;
 }
 
@@ -24,7 +28,8 @@
 }
 
 @keyframes batFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
   50% {
@@ -42,9 +47,7 @@
   font-size: 3rem;
   font-weight: bold;
   color: #ff8c00;
-  text-shadow: 
-    0 0 20px rgba(255, 140, 0, 0.8),
-    0 0 40px rgba(255, 100, 0, 0.5);
+  text-shadow: 0 0 20px rgba(255, 140, 0, 0.8), 0 0 40px rgba(255, 100, 0, 0.5);
   margin-bottom: 20px;
   animation: titleGlow 2s ease-in-out infinite alternate;
 }
@@ -57,19 +60,17 @@
 
 @keyframes titleGlow {
   0% {
-    text-shadow: 
-      0 0 20px rgba(255, 140, 0, 0.8),
+    text-shadow: 0 0 20px rgba(255, 140, 0, 0.8),
       0 0 40px rgba(255, 100, 0, 0.5);
   }
   100% {
-    text-shadow: 
-      0 0 30px rgba(255, 140, 0, 1),
-      0 0 60px rgba(255, 100, 0, 0.8);
+    text-shadow: 0 0 30px rgba(255, 140, 0, 1), 0 0 60px rgba(255, 100, 0, 0.8);
   }
 }
 
 @keyframes iconBounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -85,13 +86,16 @@
 
 /* Countdown Section */
 .countdownSection {
-  background: linear-gradient(135deg, rgba(50, 20, 60, 0.5) 0%, rgba(30, 10, 40, 0.5) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(50, 20, 60, 0.5) 0%,
+    rgba(30, 10, 40, 0.5) 100%
+  );
   border: 2px solid rgba(255, 140, 0, 0.3);
   border-radius: 20px;
   padding: 40px;
   margin-bottom: 60px;
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.5),
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
     inset 0 0 30px rgba(255, 140, 0, 0.1);
 }
 
@@ -157,7 +161,11 @@
 }
 
 .eventCard {
-  background: linear-gradient(135deg, rgba(40, 20, 50, 0.8) 0%, rgba(20, 10, 30, 0.8) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(40, 20, 50, 0.8) 0%,
+    rgba(20, 10, 30, 0.8) 100%
+  );
   border: 2px solid rgba(255, 140, 0, 0.3);
   border-radius: 20px;
   padding: 30px;
@@ -197,7 +205,8 @@
 }
 
 @keyframes gradientShift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -207,8 +216,7 @@
 
 .eventCard:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 
-    0 20px 60px rgba(255, 140, 0, 0.4),
+  box-shadow: 0 20px 60px rgba(255, 140, 0, 0.4),
     0 0 40px rgba(255, 140, 0, 0.2);
   border-color: rgba(255, 140, 0, 0.8);
 }
@@ -294,7 +302,12 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
@@ -307,28 +320,28 @@
   .title {
     font-size: 2rem;
   }
-  
+
   .countdownSection {
     padding: 30px 20px;
   }
-  
+
   .countdownValue {
     font-size: 2rem;
   }
-  
+
   .countdownItem {
     padding: 15px 20px;
   }
-  
+
   .eventsGrid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .eventCard {
     padding: 25px;
   }
-  
+
   .eventTitle {
     font-size: 1.3rem;
   }
@@ -338,23 +351,23 @@
   .eventsSection {
     padding: 60px 15px;
   }
-  
+
   .title {
     font-size: 1.5rem;
   }
-  
+
   .titleIcon {
     margin: 0 8px;
   }
-  
+
   .countdownValue {
     font-size: 1.8rem;
   }
-  
+
   .countdownLabel {
     font-size: 0.75rem;
   }
-  
+
   .countdownDivider {
     font-size: 1.8rem;
   }

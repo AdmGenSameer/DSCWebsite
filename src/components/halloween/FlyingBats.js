@@ -13,7 +13,7 @@ function FlyingBats({ count = 5 }) {
       duration: Math.random() * 15 + 10, // 10-25 seconds
       delay: Math.random() * 5,
       size: Math.random() * 0.5 + 0.6, // 0.6-1.1x size
-      path: Math.random() > 0.5 ? 'path1' : 'path2'
+      path: Math.random() > 0.5 ? 'path1' : 'path2',
     }));
     setBats(generatedBats);
   }, [count]);

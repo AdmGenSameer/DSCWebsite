@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { Draggable } from "gsap/Draggable";
-import { InertiaPlugin } from "gsap/InertiaPlugin";
-import { Physics2DPlugin } from "gsap/Physics2DPlugin";
+import React, { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
+import { Draggable } from 'gsap/Draggable';
+import { InertiaPlugin } from 'gsap/InertiaPlugin';
+import { Physics2DPlugin } from 'gsap/Physics2DPlugin';
 
-import "./SpookyPumpkins.css";
+import './SpookyPumpkins.css';
 
 // Register plugins correctly
 gsap.registerPlugin(Draggable, InertiaPlugin, Physics2DPlugin);
@@ -17,12 +17,12 @@ const angle = (x1, y1, x2, y2) =>
 
 // States
 const PumpkinStates = {
-  SPAWNING: "spawning",
-  IDLE: "idle",
-  PULLING: "pulling",
-  DRAGGING: "dragging",
-  DROPPING: "dropping",
-  LEAVING: "leaving",
+  SPAWNING: 'spawning',
+  IDLE: 'idle',
+  PULLING: 'pulling',
+  DRAGGING: 'dragging',
+  DROPPING: 'dropping',
+  LEAVING: 'leaving',
 };
 
 /* --------------------------
@@ -34,22 +34,22 @@ const PumpkinStates = {
 ---------------------------*/
 
 const createPumpkinGroup = ({ size, stem }) => {
-  const group = document.createElement("div");
-  group.className = "pumpkin-group";
+  const group = document.createElement('div');
+  group.className = 'pumpkin-group';
 
-  const dragger = document.createElement("div");
-  dragger.className = "pumpkin-dragger";
+  const dragger = document.createElement('div');
+  dragger.className = 'pumpkin-dragger';
   dragger.style.width = `${size}px`;
   dragger.style.height = `${size}px`;
 
-  const creature = document.createElement("div");
-  creature.className = "pumpkin-creature";
+  const creature = document.createElement('div');
+  creature.className = 'pumpkin-creature';
   creature.style.width = `${size}px`;
   creature.style.height = `${size}px`;
 
   // Body with realistic pumpkin details
-  const body = document.createElement("div");
-  body.className = "pumpkin-body";
+  const body = document.createElement('div');
+  body.className = 'pumpkin-body';
   body.style.width = `${size}px`;
   body.style.height = `${size}px`;
 
@@ -59,9 +59,9 @@ const createPumpkinGroup = ({ size, stem }) => {
   `;
 
   // Stems
-  const stem1 = document.createElement("div");
-  stem1.className = "pumpkin-stem";
-  stem1.style.width = "20px";
+  const stem1 = document.createElement('div');
+  stem1.className = 'pumpkin-stem';
+  stem1.style.width = '20px';
   stem1.style.height = `${stem}px`;
   stem1.style.right = `${size * 0.5}px`;
   stem1.style.top = `${size * 0.5 - stem * 0.5}px`;
@@ -87,8 +87,8 @@ class Pumpkin {
     this.group = createPumpkinGroup({ color, size, stem });
     stageRef.current.appendChild(this.group);
 
-    this.dragger = this.group.querySelector(".pumpkin-dragger");
-    this.el = this.group.querySelector(".pumpkin-creature");
+    this.dragger = this.group.querySelector('.pumpkin-dragger');
+    this.el = this.group.querySelector('.pumpkin-creature');
     this.onComplete = onComplete;
 
     this.startX = x;
@@ -102,8 +102,8 @@ class Pumpkin {
       y,
     });
 
-    this.qX = gsap.quickTo(this.el, "x", { duration: 0.2, ease: "back.out" });
-    this.qY = gsap.quickTo(this.el, "y", { duration: 0.2, ease: "back.out" });
+    this.qX = gsap.quickTo(this.el, 'x', { duration: 0.2, ease: 'back.out' });
+    this.qY = gsap.quickTo(this.el, 'y', { duration: 0.2, ease: 'back.out' });
 
     // Draggable
     [this.draggable] = Draggable.create(this.dragger, {
@@ -167,16 +167,8 @@ class Pumpkin {
         const idleTl = gsap.timeline({ repeat: -1 });
         this.idleAnimation = idleTl;
 
-        idleTl.to(
-          this.el,
-          { scaleX: 1.1, scaleY: 0.9, duration: 2 },
-          0.2
-        );
-        idleTl.to(
-          this.el,
-          { scaleX: 1, scaleY: 1, duration: 1.3 },
-          2.4
-        );
+        idleTl.to(this.el, { scaleX: 1.1, scaleY: 0.9, duration: 2 }, 0.2);
+        idleTl.to(this.el, { scaleX: 1, scaleY: 1, duration: 1.3 }, 2.4);
       },
     });
 
@@ -184,7 +176,7 @@ class Pumpkin {
       tl.fromTo(
         this.el,
         { scale: 0 },
-        { scale: 1, duration: 1, ease: "elastic.out(1, 0.5)" }
+        { scale: 1, duration: 1, ease: 'elastic.out(1, 0.5)' }
       );
     }
   }
@@ -208,11 +200,7 @@ class Pumpkin {
         this.draggable.y
       );
 
-      const stretch = gsap.utils.clamp(
-        0,
-        1,
-        d / 300
-      );
+      const stretch = gsap.utils.clamp(0, 1, d / 300);
 
       gsap.set(this.el, {
         rotation: a,
@@ -244,7 +232,7 @@ class Pumpkin {
       scaleX: 1,
       scaleY: 1,
       duration: 1,
-      ease: "elastic.out",
+      ease: 'elastic.out',
     });
 
     this.draggingTicker = () => {
@@ -279,18 +267,18 @@ class Pumpkin {
     });
 
     tl.to(this.el, {
-      y: "+=300",
+      y: '+=300',
       scaleY: 0.5,
       scaleX: 1.3,
       duration: 0.4,
-      ease: "power2.in",
+      ease: 'power2.in',
     });
 
     tl.to(this.el, {
       scaleY: 1,
       scaleX: 1,
       duration: 0.7,
-      ease: "elastic.out(1,0.4)",
+      ease: 'elastic.out(1,0.4)',
     });
   }
 
@@ -301,10 +289,10 @@ class Pumpkin {
     });
 
     tl.to(this.el, {
-      x: "+=400",
+      x: '+=400',
       rotation: 10,
       duration: 1.5,
-      ease: "power3.inOut",
+      ease: 'power3.inOut',
     });
 
     tl.to(
@@ -313,9 +301,9 @@ class Pumpkin {
         opacity: 0,
         scale: 0,
         duration: 0.5,
-        ease: "power2.in",
+        ease: 'power2.in',
       },
-      "-=0.2"
+      '-=0.2'
     );
   }
 
@@ -329,7 +317,7 @@ export default function SpookyPumpkins({
   config = {
     minPumpkins: 3,
     maxPumpkins: 6,
-    pumpkinColors: ["#F66C56", "#F66C56", "#F66C56"],
+    pumpkinColors: ['#F66C56', '#F66C56', '#F66C56'],
     minSize: 60,
     maxSize: 120,
     stemRatio: 0.9,
@@ -384,9 +372,15 @@ export default function SpookyPumpkins({
     for (let i = 0; i < minPumpkins; i += 1) {
       setTimeout(spawn, i * 400);
     }
-  }, [stageSize, minPumpkins, maxPumpkins, pumpkinColors, minSize, maxSize, stemRatio]);
+  }, [
+    stageSize,
+    minPumpkins,
+    maxPumpkins,
+    pumpkinColors,
+    minSize,
+    maxSize,
+    stemRatio,
+  ]);
 
-  return (
-    <div ref={stageRef} className="pumpkin-stage"/>
-  );
+  return <div ref={stageRef} className="pumpkin-stage" />;
 }

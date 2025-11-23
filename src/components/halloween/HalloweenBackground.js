@@ -10,8 +10,20 @@ function HalloweenBackground({ children }) {
   const pumpkinPositions = [
     { id: 'pumpkin-1', top: '15vh', left: '8%', size: 'medium', mobile: true },
     { id: 'pumpkin-2', top: '50vh', left: '90%', size: 'large', mobile: true },
-    { id: 'pumpkin-3', top: '100vh', left: '10%', size: 'small', mobile: false },
-    { id: 'pumpkin-4', top: '140vh', left: '88%', size: 'medium', mobile: false },
+    {
+      id: 'pumpkin-3',
+      top: '100vh',
+      left: '10%',
+      size: 'small',
+      mobile: false,
+    },
+    {
+      id: 'pumpkin-4',
+      top: '140vh',
+      left: '88%',
+      size: 'medium',
+      mobile: false,
+    },
   ];
 
   return (
@@ -35,9 +47,11 @@ function HalloweenBackground({ children }) {
       {/* Interactive pumpkins */}
       <div className={styles.pumpkinsLayer}>
         {pumpkinPositions.map((pos) => (
-          <div 
-            key={pos.id} 
-            className={pos.mobile ? styles.pumpkinMobile : styles.pumpkinDesktop}
+          <div
+            key={pos.id}
+            className={
+              pos.mobile ? styles.pumpkinMobile : styles.pumpkinDesktop
+            }
           >
             <InteractivePumpkin
               position={{ top: pos.top, left: pos.left }}
@@ -48,10 +62,8 @@ function HalloweenBackground({ children }) {
       </div>
 
       {/* Main content */}
-      <div className={styles.contentWrapper}>
-        {children}
-      </div>
-      
+      <div className={styles.contentWrapper}>{children}</div>
+
       {/* Ghost cursor */}
       <GhostCursor />
     </div>

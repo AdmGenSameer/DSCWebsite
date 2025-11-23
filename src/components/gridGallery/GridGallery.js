@@ -6,7 +6,16 @@ import styles from './grid-gallery.module.css';
 // Simple SVG icons
 function ChevronLeft() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <polyline points="15 18 9 12 15 6" />
     </svg>
   );
@@ -14,7 +23,16 @@ function ChevronLeft() {
 
 function ChevronRight() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <polyline points="9 18 15 12 9 6" />
     </svg>
   );
@@ -22,7 +40,16 @@ function ChevronRight() {
 
 function CloseIcon() {
   return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <line x1="18" y1="6" x2="6" y2="18" />
       <line x1="6" y1="6" x2="18" y2="18" />
     </svg>
@@ -41,7 +68,8 @@ function GridGallery() {
 
   const checkScrollButtons = () => {
     if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      const { scrollLeft, scrollWidth, clientWidth } =
+        scrollContainerRef.current;
       setCanScrollLeft(scrollLeft > 10);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
     }
@@ -60,17 +88,21 @@ function GridGallery() {
     if (direction === 'next') {
       setCurrentImageIndex((prev) => (prev + 1) % GalleryImages.length);
     } else {
-      setCurrentImageIndex((prev) => (prev - 1 + GalleryImages.length) % GalleryImages.length);
+      setCurrentImageIndex(
+        (prev) => (prev - 1 + GalleryImages.length) % GalleryImages.length
+      );
     }
   };
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
       const scrollAmount = 370;
-      const newScrollLeft = scrollContainerRef.current.scrollLeft + (direction === 'right' ? scrollAmount : -scrollAmount);
+      const newScrollLeft =
+        scrollContainerRef.current.scrollLeft +
+        (direction === 'right' ? scrollAmount : -scrollAmount);
       scrollContainerRef.current.scrollTo({
         left: newScrollLeft,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
@@ -152,7 +184,9 @@ function GridGallery() {
           <button
             type="button"
             onClick={() => scroll('left')}
-            className={`${styles.navButton} ${styles.navButtonLeft} ${!canScrollLeft ? styles.navButtonHidden : ''}`}
+            className={`${styles.navButton} ${styles.navButtonLeft} ${
+              !canScrollLeft ? styles.navButtonHidden : ''
+            }`}
             aria-label="Scroll left"
           >
             <ChevronLeft />
@@ -161,7 +195,9 @@ function GridGallery() {
           <button
             type="button"
             onClick={() => scroll('right')}
-            className={`${styles.navButton} ${styles.navButtonRight} ${!canScrollRight ? styles.navButtonHidden : ''}`}
+            className={`${styles.navButton} ${styles.navButtonRight} ${
+              !canScrollRight ? styles.navButtonHidden : ''
+            }`}
             aria-label="Scroll right"
           >
             <ChevronRight />
@@ -316,7 +352,9 @@ function Lightbox({ images, currentIndex, onClose, onNavigate }) {
         />
         <div className={styles.lightboxInfo}>
           <h2>{currentImage.title}</h2>
-          <p>{currentIndex + 1} / {images.length}</p>
+          <p>
+            {currentIndex + 1} / {images.length}
+          </p>
         </div>
       </div>
     </div>

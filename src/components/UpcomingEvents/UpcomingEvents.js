@@ -6,7 +6,7 @@ function UpcomingEvents() {
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0
+    seconds: 0,
   });
 
   // Example event date - Replace with your actual event date
@@ -24,9 +24,11 @@ function UpcomingEvents() {
 
       setTimeLeft({
         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        hours: Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        ),
         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
       });
     }, 1000);
 
@@ -36,31 +38,34 @@ function UpcomingEvents() {
   const upcomingEvents = [
     {
       id: 1,
-      title: "🎃 Halloween Hackathon",
-      date: "Oct 31, 2025",
-      time: "6:00 PM - 11:59 PM",
-      description: "Join us for a spooky coding challenge! Build the most haunting ML models and win exciting prizes.",
-      location: "VIT Bhopal Campus",
-      category: "Hackathon"
+      title: '🎃 Halloween Hackathon',
+      date: 'Oct 31, 2025',
+      time: '6:00 PM - 11:59 PM',
+      description:
+        'Join us for a spooky coding challenge! Build the most haunting ML models and win exciting prizes.',
+      location: 'VIT Bhopal Campus',
+      category: 'Hackathon',
     },
     {
       id: 2,
-      title: "👻 AI Workshop: Spooky Predictions",
-      date: "Nov 5, 2025",
-      time: "4:00 PM - 6:00 PM",
-      description: "Learn to build predictive models with a Halloween twist. Predict haunted house patterns!",
-      location: "Tech Lab 3",
-      category: "Workshop"
+      title: '👻 AI Workshop: Spooky Predictions',
+      date: 'Nov 5, 2025',
+      time: '4:00 PM - 6:00 PM',
+      description:
+        'Learn to build predictive models with a Halloween twist. Predict haunted house patterns!',
+      location: 'Tech Lab 3',
+      category: 'Workshop',
     },
     {
       id: 3,
-      title: "🦇 Data Visualization Night",
-      date: "Nov 12, 2025",
-      time: "5:00 PM - 7:00 PM",
-      description: "Create eerie and engaging data visualizations. Dark mode plots encouraged!",
-      location: "Seminar Hall",
-      category: "Workshop"
-    }
+      title: '🦇 Data Visualization Night',
+      date: 'Nov 12, 2025',
+      time: '5:00 PM - 7:00 PM',
+      description:
+        'Create eerie and engaging data visualizations. Dark mode plots encouraged!',
+      location: 'Seminar Hall',
+      category: 'Workshop',
+    },
   ];
 
   return (
@@ -68,8 +73,13 @@ function UpcomingEvents() {
       <div className={styles.container}>
         {/* Floating bats decoration */}
         <div className={styles.batDecor}>🦇</div>
-        <div className={styles.batDecor} style={{ left: '80%', animationDelay: '2s' }}>🦇</div>
-        
+        <div
+          className={styles.batDecor}
+          style={{ left: '80%', animationDelay: '2s' }}
+        >
+          🦇
+        </div>
+
         {/* Section Title */}
         <div className={styles.sectionHeader}>
           <h2 className={styles.title}>
@@ -111,8 +121,8 @@ function UpcomingEvents() {
         {/* Events Cards */}
         <div className={styles.eventsGrid}>
           {upcomingEvents.map((event, index) => (
-            <div 
-              key={event.id} 
+            <div
+              key={event.id}
               className={styles.eventCard}
               style={{ animationDelay: `${index * 0.2}s` }}
             >

@@ -58,7 +58,10 @@ function ContactUs() {
               Just fill this simple form in and we will contact you promptly.
               Hate forms? Drop us a line at{' '}
               <span>
-                <a className="text-blue" href="mailto:datascienceclub@vitbhopal.ac.in">
+                <a
+                  className="text-blue"
+                  href="mailto:datascienceclub@vitbhopal.ac.in"
+                >
                   datascienceclub@vitbhopal.ac.in
                 </a>
               </span>

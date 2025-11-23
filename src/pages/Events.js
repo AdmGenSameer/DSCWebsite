@@ -66,42 +66,42 @@ function Events() {
     <HalloweenBackground>
       <Screen>
         <Helmet>
-        <title>Our Events - Data Science Club</title>
-        <meta
-          name="description"
-          content="Event Information of Data Science Club, VIT Bhopal"
-        />
-        <meta
-          name="keywords"
-          content="Data Science, Machine Learning, AI, Events, Data Science Club, VIT Bhopal"
-        />
-      </Helmet>
-      <div>
-        <div className="text-center mt-10 mb-8 sm:my-8">
-          <div className="flex flex-col justify-between h-[calc(100vh-100px-3rem)] items-center sm:h-[calc(90vh-100px-1rem)]">
-            <BottomGlitter text="Our Events" />
-            <AnimatedScrollButton
-              onClick={() =>
-                document.getElementById('scrolled-to').scrollIntoView()
-              }
-            />
+          <title>Our Events - Data Science Club</title>
+          <meta
+            name="description"
+            content="Event Information of Data Science Club, VIT Bhopal"
+          />
+          <meta
+            name="keywords"
+            content="Data Science, Machine Learning, AI, Events, Data Science Club, VIT Bhopal"
+          />
+        </Helmet>
+        <div>
+          <div className="text-center mt-10 mb-8 sm:my-8">
+            <div className="flex flex-col justify-between h-[calc(100vh-100px-3rem)] items-center sm:h-[calc(90vh-100px-1rem)]">
+              <BottomGlitter text="Our Events" />
+              <AnimatedScrollButton
+                onClick={() =>
+                  document.getElementById('scrolled-to').scrollIntoView()
+                }
+              />
+            </div>
+          </div>
+
+          <div className={styles.wrapper} id="scrolled-to">
+            {EventsData.map(({ title, description, bgImage, link }, index) => (
+              <EventBox
+                title={title}
+                description={description}
+                src={bgImage}
+                link={link}
+                id={`event-${index}`}
+                key={title}
+              />
+            ))}
           </div>
         </div>
-
-        <div className={styles.wrapper} id="scrolled-to">
-          {EventsData.map(({ title, description, bgImage, link }, index) => (
-            <EventBox
-              title={title}
-              description={description}
-              src={bgImage}
-              link={link}
-              id={`event-${index}`}
-              key={title}
-            />
-          ))}
-        </div>
-      </div>
-    </Screen>
+      </Screen>
     </HalloweenBackground>
   );
 }

@@ -81,14 +81,14 @@
   animation: flapWings 0.3s ease-in-out infinite alternate;
 }
 
-.batWing[data-wing="left"] {
+.batWing[data-wing='left'] {
   left: -18px;
   border-radius: 50% 10% 10% 50%;
   clip-path: polygon(0% 20%, 30% 0%, 100% 40%, 100% 100%, 50% 80%, 0% 100%);
   animation-delay: 0s;
 }
 
-.batWing[data-wing="right"] {
+.batWing[data-wing='right'] {
   right: -18px;
   border-radius: 10% 50% 50% 10%;
   clip-path: polygon(0% 40%, 70% 0%, 100% 20%, 100% 100%, 50% 80%, 0% 100%);

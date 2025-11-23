@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import styles from './InteractivePumpkin.module.css';
 
-function InteractivePumpkin({ position = { top: '60%', left: '85%' }, size = 'medium' }) {
+function InteractivePumpkin({
+  position = { top: '60%', left: '85%' },
+  size = 'medium',
+}) {
   const [isExploding, setIsExploding] = useState(false);
   const [burstBats, setBurstBats] = useState([]);
 
@@ -17,7 +20,7 @@ function InteractivePumpkin({ position = { top: '60%', left: '85%' }, size = 'me
       angle: (Math.PI * 2 * i) / 15,
       distance: Math.random() * 300 + 200,
       duration: Math.random() * 2 + 2,
-      rotation: Math.random() * 360
+      rotation: Math.random() * 360,
     }));
 
     setBurstBats(bats);
@@ -32,12 +35,14 @@ function InteractivePumpkin({ position = { top: '60%', left: '85%' }, size = 'me
   return (
     <>
       <div
-        className={`${styles.pumpkinContainer} ${styles[size]} ${isExploding ? styles.exploding : ''}`}
+        className={`${styles.pumpkinContainer} ${styles[size]} ${
+          isExploding ? styles.exploding : ''
+        }`}
         style={{
           position: 'absolute',
           top: position.top,
           left: position.left,
-          zIndex: 2
+          zIndex: 2,
         }}
         onClick={handleClick}
       >
@@ -82,7 +87,7 @@ function InteractivePumpkin({ position = { top: '60%', left: '85%' }, size = 'me
                 '--duration': `${bat.duration}s`,
                 '--rotation': `${bat.rotation}deg`,
                 left: position.left,
-                top: position.top
+                top: position.top,
               }}
             >
               <div className={styles.burstBatBody}>

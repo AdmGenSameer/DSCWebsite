@@ -13,7 +13,7 @@
 
 .halloweenWrapper a,
 .halloweenWrapper button,
-.halloweenWrapper [role="button"] {
+.halloweenWrapper [role='button'] {
   cursor: none !important;
 }
 
@@ -51,10 +51,21 @@
   left: 0;
   width: 200%;
   height: 40%;
-  background: 
-    radial-gradient(ellipse at 20% 100%, rgba(60, 50, 70, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 60% 100%, rgba(50, 40, 60, 0.25) 0%, transparent 50%),
-    radial-gradient(ellipse at 90% 100%, rgba(70, 60, 80, 0.3) 0%, transparent 50%);
+  background: radial-gradient(
+      ellipse at 20% 100%,
+      rgba(60, 50, 70, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 60% 100%,
+      rgba(50, 40, 60, 0.25) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 90% 100%,
+      rgba(70, 60, 80, 0.3) 0%,
+      transparent 50%
+    );
   animation: fogDrift 30s linear infinite;
   filter: blur(20px);
 }
@@ -104,7 +115,7 @@
   .pumpkinDesktop {
     display: none;
   }
-  
+
   .pumpkinMobile {
     display: block;
   }
@@ -141,14 +152,14 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .candlesLayer > *:nth-child(n+4) {
+  .candlesLayer > *:nth-child(n + 4) {
     display: none;
   }
-  
+
   .atmosphericLayer {
     opacity: 0.7;
   }
-  
+
   .fogLayer {
     height: 25%;
   }
@@ -159,11 +170,11 @@
     height: 20%;
     opacity: 0.5;
   }
-  
-  .candlesLayer > *:nth-child(n+3) {
+
+  .candlesLayer > *:nth-child(n + 3) {
     display: none;
   }
-  
+
   .darkGradient {
     background: linear-gradient(
       180deg,

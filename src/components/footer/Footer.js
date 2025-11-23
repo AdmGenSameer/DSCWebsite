@@ -4,15 +4,18 @@ import SpookyPumpkins from '../PumpkinFooter/SpookyPumpkin';
 
 function Footer() {
   return (
-    <footer className={`${Styles.footer} container-70`} style={{ overflow: "hidden" }}>
-
-
+    <footer
+      className={`${Styles.footer} container-70`}
+      style={{ overflow: 'hidden' }}
+    >
       <div className={Styles.linksContainer}>
         <div className="flex-2 md:flex-1">
           <div className="mb-3 flex flex-col">
             <h3 className="text-2xl">Write</h3>
             <h4 className="text-lg font-extralight">
-              <a href="mailto:datascienceclub@vitbhopal.ac.in">datascienceclub@vitbhopal.ac.in</a>
+              <a href="mailto:datascienceclub@vitbhopal.ac.in">
+                datascienceclub@vitbhopal.ac.in
+              </a>
             </h4>
           </div>
           <div className="my-3 flex flex-col">
@@ -27,7 +30,10 @@ function Footer() {
         </div>
         <div className="flex-4 md:flex-1 md:mx-4 sm:mx-0 sm:mt-8">
           <h3 className="text-2xl">Other Pages</h3>
-          <Link to="/events" className="pl-1 block text-lg my-1 font-extralight">
+          <Link
+            to="/events"
+            className="pl-1 block text-lg my-1 font-extralight"
+          >
             Events
           </Link>
           <a
@@ -60,7 +66,10 @@ function Footer() {
           <Link to="/faqs" className="block pl-1 text-lg my-1 font-extralight">
             FAQs
           </Link>
-          <Link to="/contact" className="pl-1 block text-lg my-1 font-extralight">
+          <Link
+            to="/contact"
+            className="pl-1 block text-lg my-1 font-extralight"
+          >
             Contact Us
           </Link>
         </div>
@@ -73,7 +82,8 @@ function Footer() {
         </h6>
 
         <h6 className="flex items-center">
-          Crafted with&nbsp;<span className="text-2xl">♥</span>&nbsp;by Data Science Club Team.
+          Crafted with&nbsp;<span className="text-2xl">♥</span>&nbsp;by Data
+          Science Club Team.
         </h6>
       </div>
       <SpookyPumpkins />

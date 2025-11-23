@@ -15,7 +15,7 @@ function GhostCursor() {
     const handleMouseMove = (e) => {
       targetX = e.clientX;
       targetY = e.clientY;
-      
+
       if (!isVisible) {
         setIsVisible(true);
         currentX = targetX;
@@ -35,7 +35,7 @@ function GhostCursor() {
 
       setPosition({
         x: currentX,
-        y: currentY
+        y: currentY,
       });
 
       animationFrameId = requestAnimationFrame(animate);
@@ -69,10 +69,10 @@ function GhostCursor() {
           <div className={styles.eye} />
           <div className={styles.eye} />
         </div>
-        
+
         {/* Mouth */}
         <div className={styles.mouth} />
-        
+
         {/* Wavy bottom */}
         <div className={styles.ghostWaves}>
           <div className={styles.wave} />
@@ -81,7 +81,7 @@ function GhostCursor() {
           <div className={styles.wave} />
         </div>
       </div>
-      
+
       {/* Ghost trail effect */}
       <div className={styles.ghostTrail} />
     </div>

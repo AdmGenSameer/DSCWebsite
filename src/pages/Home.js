@@ -27,10 +27,10 @@ export default function Home() {
           content="Data Science, Machine Learning, AI, Deep Learning, Python, Data Analytics, Data Science Club, VIT Bhopal"
         />
       </Helmet>
-      
+
       {/* Cinematic pumpkin entrance */}
       <PumpkinTransition />
-      
+
       {/* Main content */}
       <HalloweenBackground>
         <Screen>

@@ -7,7 +7,8 @@ export const TeamData2k20 = [
       linkedin: 'kunalmahatha',
       email: 'kunalmahatha@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Divyansh Sahu',
@@ -17,7 +18,8 @@ export const TeamData2k20 = [
       linkedin: 'divyanshsahu55',
       email: 'divyanshsahu80@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Aniket Tiwary',
@@ -27,7 +29,8 @@ export const TeamData2k20 = [
       linkedin: 'aniket-tiwary-0ba759206',
       email: 'tiwaryaniket9900@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Ritesh Kumar',
@@ -37,7 +40,8 @@ export const TeamData2k20 = [
       linkedin: 'ritesh-kumar-39a471208',
       email: 'riteshkumarmehra41@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Prafulla Shekhar',
@@ -47,7 +51,8 @@ export const TeamData2k20 = [
       linkedin: 'prafulla-shekhar-292820207',
       email: 'prafullashekhar@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Vishwajeet Kumar Singh',
@@ -57,7 +62,8 @@ export const TeamData2k20 = [
       linkedin: 'vishwajeet01',
       email: 'v.k.singh220701@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Pranav Singh',
@@ -67,7 +73,8 @@ export const TeamData2k20 = [
       linkedin: 'pranav-singh-2818091b8',
       email: 'pranavsingh4257@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Nipun Kumar',
@@ -77,7 +84,8 @@ export const TeamData2k20 = [
       linkedin: 'nipunkumar815313',
       email: 'nipunvirat0@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Harsh kumar Jha',
@@ -87,7 +95,8 @@ export const TeamData2k20 = [
       linkedin: 'harsh-kumar-jha-359231183',
       email: 'kumarharsh2396@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Kumar Rishab',
@@ -97,7 +106,8 @@ export const TeamData2k20 = [
       linkedin: 'kumar-rishab',
       email: 'rishab.davksd@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Anjali Goswami',
@@ -107,7 +117,8 @@ export const TeamData2k20 = [
       linkedin: 'anjaligoswami20',
       email: ' agcodes86400@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Unnat Kumar',
@@ -117,7 +128,8 @@ export const TeamData2k20 = [
       linkedin: 'unnatkumar',
       email: 'unnatkumar2000@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Suraj Kumar Barnwal',
@@ -127,7 +139,8 @@ export const TeamData2k20 = [
       linkedin: 'suraj-barnwal',
       email: 'surajbarnwal24@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Abhishek Anand',
@@ -137,7 +150,8 @@ export const TeamData2k20 = [
       linkedin: 'abhishek-anand-566115201',
       email: 'abhishekanand20001027@gmail.com ',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Aditya Kumar Mandal',
@@ -147,7 +161,8 @@ export const TeamData2k20 = [
       linkedin: 'aditya-mandal',
       email: 'adityanick08@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Krit Raj',
@@ -157,7 +172,8 @@ export const TeamData2k20 = [
       linkedin: 'krit-raj-7978b5207',
       email: 'kritraj.01@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Shiwani Kumari',
@@ -167,7 +183,8 @@ export const TeamData2k20 = [
       linkedin: 'shiwani-kumari-69298b207',
       email: 'shiwanikumari835@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Jasmine C Kashhap',
@@ -177,7 +194,8 @@ export const TeamData2k20 = [
       linkedin: 'jasmine-kachhap-57110b207',
       email: 'jasmineck2001@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Shital Kumari',
@@ -187,7 +205,8 @@ export const TeamData2k20 = [
       linkedin: 'shital-kumari-0a2693212',
       email: 'kumarishital007@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Harshita',
@@ -197,7 +216,8 @@ export const TeamData2k20 = [
       linkedin: 'harshita-kshyp',
       email: 'hrsa.kshyp@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Ruhi Rani',
@@ -207,7 +227,8 @@ export const TeamData2k20 = [
       linkedin: 'ruhi-rani-a06a62204/?originalSubdomain=in',
       email: 'ruhirani933@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Shweta Rani',
@@ -217,7 +238,8 @@ export const TeamData2k20 = [
       linkedin: 'shweta-rani-54bb11206',
       email: '2002shwetarani@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Ritu Kumari',
@@ -227,7 +249,8 @@ export const TeamData2k20 = [
       linkedin: 'ritu-kumari-31618b209',
       email: 'ritukumarikarmali@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Tanweer Ansari',
@@ -237,7 +260,8 @@ export const TeamData2k20 = [
       linkedin: 'tanweer-ansari-724721209',
       email: 'tanweer7033913455@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Divas Gupta',
@@ -247,7 +271,8 @@ export const TeamData2k20 = [
       linkedin: 'divas-gupta-13712417b',
       email: 'dvsmathur7050@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Lalan Kumar Saw',
@@ -257,7 +282,8 @@ export const TeamData2k20 = [
       linkedin: 'lalan-saw-535761209',
       email: 'lalankumarsaw02022002@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
 ];
 
@@ -270,7 +296,8 @@ export const TeamData2k21 = [
       linkedin: 'soumik-ghoshal-b26784232',
       email: 'soumik.kumar200803@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Anuj Kumar Barnwal',
@@ -280,7 +307,8 @@ export const TeamData2k21 = [
       linkedin: 'anuj-kumar-9365b822a',
       email: 'anujk2k2@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Ruma Karn',
@@ -290,7 +318,8 @@ export const TeamData2k21 = [
       linkedin: 'ruma-karn-668893201',
       email: 'rumakarn70@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Abhay Anand',
@@ -300,7 +329,8 @@ export const TeamData2k21 = [
       linkedin: 'abhay-anand-15a819212',
       email: 'abhayanandjsr@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Mohit Pandey',
@@ -310,7 +340,8 @@ export const TeamData2k21 = [
       linkedin: 'mohit-pandey-5b0756197',
       email: 'pandeymohit215@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Tanmay Agarwal',
@@ -320,7 +351,8 @@ export const TeamData2k21 = [
       linkedin: 'tanmay-agarwal-12a0531b8',
       email: 'agarwaltanmay401@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Rashika Kumari',
@@ -330,7 +362,8 @@ export const TeamData2k21 = [
       linkedin: 'rashika-kumari-586329230',
       email: 'rashika.kr04@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Sumit Kumar',
@@ -340,7 +373,8 @@ export const TeamData2k21 = [
       linkedin: 'sumit-kumar-133782197',
       email: 'sumitkumar89694@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Ritika Kumari',
@@ -350,7 +384,8 @@ export const TeamData2k21 = [
       linkedin: 'ritika-kumari-9394951ab',
       email: 'riya.ritika1112@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Anjali Barnwal',
@@ -360,7 +395,8 @@ export const TeamData2k21 = [
       linkedin: 'anjali-barnwal-410aa9228',
       email: 'anjalibarnwal31@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Priyanshu Katyayni',
@@ -370,7 +406,8 @@ export const TeamData2k21 = [
       linkedin: 'priyanshu-katyayni-70b0a4233',
       email: 'priyanshukatyayni229@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Tanmay Agarwal',
@@ -380,7 +417,8 @@ export const TeamData2k21 = [
       linkedin: 'tanmay-agarwal-12a0531b8',
       email: 'agarwaltanmay401@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Abhishek Mondal',
@@ -390,7 +428,8 @@ export const TeamData2k21 = [
       linkedin: 'abhishek-mondal-90544a227',
       email: 'abhishekmondal453@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Ruchi Priya',
@@ -400,7 +439,8 @@ export const TeamData2k21 = [
       linkedin: 'ruchi-priya-47a31122b',
       email: 'priya21ruchi@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Pratik Srivastava',
@@ -410,7 +450,8 @@ export const TeamData2k21 = [
       linkedin: 'srivastava2191',
       email: 'srivastava2191@gmail.com ',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
 
   {
@@ -421,7 +462,8 @@ export const TeamData2k21 = [
       linkedin: 'amarjeet-anand-54b105230',
       email: 'amarjeetanand421@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Piyusha Kumari',
@@ -431,7 +473,8 @@ export const TeamData2k21 = [
       linkedin: 'piyusha-kumari-328177225',
       email: 'piyusha@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Suraj Kumar',
@@ -441,7 +484,8 @@ export const TeamData2k21 = [
       linkedin: 'suraj-kumar-3377b6216',
       email: 'Subroto092@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Nisha Kumari',
@@ -451,7 +495,8 @@ export const TeamData2k21 = [
       linkedin: 'nisha-kumari-97b662230',
       email: 'nishakumarin408@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Sumit Kumar',
@@ -461,7 +506,8 @@ export const TeamData2k21 = [
       linkedin: 'sumit-kumar-53a07a230',
       email: 'rajsumit22032003@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Anjali Barnwal',
@@ -471,7 +517,8 @@ export const TeamData2k21 = [
       linkedin: 'anjali-barnwal-410aa9228',
       email: 'anjalibarnwal31@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Saurabh Kumar Singh',
@@ -481,7 +528,8 @@ export const TeamData2k21 = [
       linkedin: 'saurabh-singh-qwerty12345',
       email: 'saurabhsinghnewlife@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Badal Kumar Singh',
@@ -491,7 +539,8 @@ export const TeamData2k21 = [
       linkedin: 'badal-singh-73553622a',
       email: 'jpbadalsingh8899@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Shail Kumari',
@@ -501,7 +550,8 @@ export const TeamData2k21 = [
       linkedin: 'shail-kumari-17858b229',
       email: 'shailk828113@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Ritik Raj Pandey',
@@ -511,7 +561,8 @@ export const TeamData2k21 = [
       linkedin: 'ritikraj-pandey-b67a17221',
       email: 'ritikphenomenon@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Esha Kumari',
@@ -521,7 +572,8 @@ export const TeamData2k21 = [
       linkedin: 'esha-kumari-47b854232',
       email: 'eshakumari2002@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
 ];
 
@@ -534,7 +586,8 @@ export const TeamData2k22 = [
       linkedin: 'tisha-agrawal-512b12246',
       email: 'agrawaltisha37@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Pranav Kumar Singh',
@@ -544,7 +597,8 @@ export const TeamData2k22 = [
       linkedin: 'pranav-kumar-singh-1a365124a',
       email: 'kumarharsh073@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Namita Sinha',
@@ -554,7 +608,8 @@ export const TeamData2k22 = [
       linkedin: 'namita-sinha-45b361256',
       email: 'nsinha1827@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Gourav Mondal',
@@ -564,7 +619,8 @@ export const TeamData2k22 = [
       linkedin: 'gourav-mondal-55a812204',
       email: 'gouravmondal30june2002@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Amaan Husaain',
@@ -574,7 +630,8 @@ export const TeamData2k22 = [
       linkedin: 'amaan-hussain-67407725b',
       email: 'amaanhussain983@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Vaishwanavi Kumari',
@@ -584,7 +641,8 @@ export const TeamData2k22 = [
       linkedin: 'vaishwanavi-kumari-39886b25b',
       email: 'vaishwanavikumari@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Syed Adnan Ahmad',
@@ -594,7 +652,8 @@ export const TeamData2k22 = [
       linkedin: 'ahmadsyed4312',
       email: 'syed.bitsindri@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Akarshi Sinha',
@@ -604,7 +663,8 @@ export const TeamData2k22 = [
       linkedin: 'akarshi-sinha-4a1550258',
       email: 'akarshisinha569@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Shruti Kedia ',
@@ -614,7 +674,8 @@ export const TeamData2k22 = [
       linkedin: 'shruti-kedia-70223123a',
       email: 'shrutikedia2022@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Anish Singh',
@@ -624,7 +685,8 @@ export const TeamData2k22 = [
       linkedin: 'anish-singh-48a840247',
       email: 'anish1279singh@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Shreya Paul',
@@ -634,7 +696,8 @@ export const TeamData2k22 = [
       linkedin: 'shreya-paul-a84606257',
       email: 'shreyapaul100@yahoo.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
 
   {
@@ -645,7 +708,8 @@ export const TeamData2k22 = [
       linkedin: 'adityasrivastawa',
       email: 'arsrivastawa2710@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Akash Nath ',
@@ -655,7 +719,8 @@ export const TeamData2k22 = [
       linkedin: 'theakashnath',
       email: 'AKkingak111@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Naveen Prajapati',
@@ -665,7 +730,8 @@ export const TeamData2k22 = [
       linkedin: 'naveen-prajapati-bb538425b',
       email: 'naveen.me1043@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Harsh Raj',
@@ -675,7 +741,8 @@ export const TeamData2k22 = [
       linkedin: 'harsh-raj-208ba2252',
       email: 'rharsh808@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
 
   {
@@ -686,7 +753,8 @@ export const TeamData2k22 = [
       linkedin: 'harsh1806',
       email: 'helloharsh51@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
 
   {
@@ -697,7 +765,8 @@ export const TeamData2k22 = [
       linkedin: 'mahika-barnwal-a995ba256',
       email: 'mahibarnwal1234@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Ashish Kumar',
@@ -707,7 +776,8 @@ export const TeamData2k22 = [
       linkedin: 'ashish-kumar-a599441b0',
       email: 'ak4970799@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
   {
     name: 'Anshu Kumar Mehta ',
@@ -717,6 +787,7 @@ export const TeamData2k22 = [
       linkedin: 'anshu-kumar-mehta-42045a251',
       email: 'mehtanshu2211@gmail.com',
     },
-    imageSrc: 'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
+    imageSrc:
+      'https://via.placeholder.com/300x300/4A5568/FFFFFF?text=Team+Member',
   },
 ];

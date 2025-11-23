@@ -50,19 +50,20 @@ function PumpkinTransition({ onComplete }) {
         ease: 'power2.out',
       }
     )
-      .to(fire, {
-        scale: 1.2,
-        opacity: 1,
-        duration: 0.2,
-      }, '<')
       .to(
-        pumpkin,
+        fire,
         {
-          scale: 2.5,
-          duration: 0.3,
-          ease: 'power1.in',
-        }
+          scale: 1.2,
+          opacity: 1,
+          duration: 0.2,
+        },
+        '<'
       )
+      .to(pumpkin, {
+        scale: 2.5,
+        duration: 0.3,
+        ease: 'power1.in',
+      })
       .to(
         fire,
         {
@@ -81,14 +82,11 @@ function PumpkinTransition({ onComplete }) {
         },
         '<'
       )
-      .to(
-        pumpkin,
-        {
-          scale: 5,
-          duration: 0.3,
-          ease: 'power2.in',
-        }
-      )
+      .to(pumpkin, {
+        scale: 5,
+        duration: 0.3,
+        ease: 'power2.in',
+      })
       .to(
         blackout,
         {
@@ -99,7 +97,7 @@ function PumpkinTransition({ onComplete }) {
       );
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [onComplete]);
 
