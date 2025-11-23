@@ -24,50 +24,8 @@ function HomeAbout() {
   return (
     <section
       ref={ref}
-      className="container-70 my-16 py-16 fadeonscroll sm:transform-none sm:opacity-100 relative overflow-hidden"
+      className="container-70 my-16 py-16 fadeonscroll sm:transform-none sm:opacity-100 relative"
     >
-      {/* Halloween Decorations - Enhanced Pumpkin beside text */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Large Pumpkin beside "Design Develop Code" text area - Left side */}
-        <div className="absolute left-[-140px] top-[15%] w-64 md:w-48 sm:hidden lg:left-[-160px] xl:left-[-180px]">
-          <div className="animate-pulse" style={{ animationDuration: '3s' }}>
-            <span className="text-[180px] md:text-[140px] drop-shadow-[0_0_30px_rgba(255,140,0,0.6)] opacity-70 block">
-              🎃
-            </span>
-          </div>
-        </div>
-
-        {/* Right side - Floating elements in free space */}
-        <div className="absolute right-[-120px] top-[40%] w-48 md:w-36 sm:hidden lg:right-[-140px] xl:right-[-160px]">
-          <div
-            className="animate-pulse"
-            style={{ animationDuration: '4s', animationDelay: '1s' }}
-          >
-            <span className="text-[140px] md:text-[110px] drop-shadow-[0_0_25px_rgba(255,165,0,0.5)] opacity-60 block">
-              🎃
-            </span>
-          </div>
-        </div>
-
-        {/* Small decorative elements */}
-        <div className="absolute right-[10%] top-[10%] opacity-30">
-          <span
-            className="text-4xl md:text-3xl sm:text-2xl animate-bounce"
-            style={{ animationDuration: '5s' }}
-          >
-            🦇
-          </span>
-        </div>
-        <div className="absolute left-[15%] bottom-[15%] opacity-30">
-          <span
-            className="text-5xl md:text-4xl sm:text-3xl animate-pulse"
-            style={{ animationDuration: '6s', animationDelay: '2s' }}
-          >
-            👻
-          </span>
-        </div>
-      </div>
-
       {/* Content */}
       <div className="relative z-10">
         <BottomGlitter text="About DSC VIT Bhopal" />
