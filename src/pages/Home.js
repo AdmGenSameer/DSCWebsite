@@ -16,6 +16,7 @@ import PumpkinTransition from '../components/halloween/PumpkinTransition';
 export default function Home() {
   const [showTransition, setShowTransition] = useState(false);
   const [transitionComplete, setTransitionComplete] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
     // Check if transition has been shown in this session
@@ -25,6 +26,7 @@ export default function Home() {
       setShowTransition(true);
     } else {
       setTransitionComplete(true);
+      setContentVisible(true);
     }
   }, []);
 
@@ -36,9 +38,14 @@ export default function Home() {
     document.body.style.overflow = '';
     document.body.style.height = '';
 
-    // Hide transition and show main content
+    // Hide transition and show main content with smooth fade
     setShowTransition(false);
     setTransitionComplete(true);
+
+    // Delay content visibility for smooth fade-in
+    setTimeout(() => {
+      setContentVisible(true);
+    }, 100);
   };
 
   return (
@@ -62,18 +69,26 @@ export default function Home() {
 
       {/* Main content - only show after transition completes */}
       {transitionComplete && (
-        <HalloweenBackground>
-          <Screen>
-            <Notice />
-            <Video />
-            <UpcomingEvents />
-            <HomeAbout />
-            <TechStack />
-            <GridGallery />
-            <Sponsors />
-            <Associations />
-          </Screen>
-        </HalloweenBackground>
+        <div
+          style={{
+            opacity: contentVisible ? 1 : 0,
+            transform: contentVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 1.2s ease-out, transform 1.2s ease-out',
+          }}
+        >
+          <HalloweenBackground>
+            <Screen>
+              <Notice />
+              <Video />
+              <UpcomingEvents />
+              <HomeAbout />
+              <TechStack />
+              <GridGallery />
+              <Sponsors />
+              <Associations />
+            </Screen>
+          </HalloweenBackground>
+        </div>
       )}
     </>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './PumpkinTransition.module.css';
+import FlyingBats from './FlyingBats';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -245,42 +246,7 @@ function PumpkinTransition({ onComplete }) {
     <div ref={containerRef} className={styles.transitionContainer}>
       <div className={styles.darkBackground}>
         {/* Flying bats around the scene */}
-        <div
-          className={styles.bat}
-          style={{ '--delay': '0s', '--duration': '8s' }}
-        >
-          🦇
-        </div>
-        <div
-          className={styles.bat}
-          style={{ '--delay': '2s', '--duration': '10s' }}
-        >
-          🦇
-        </div>
-        <div
-          className={styles.bat}
-          style={{ '--delay': '4s', '--duration': '9s' }}
-        >
-          🦇
-        </div>
-        <div
-          className={styles.bat}
-          style={{ '--delay': '1s', '--duration': '11s' }}
-        >
-          🦇
-        </div>
-        <div
-          className={styles.bat}
-          style={{ '--delay': '3s', '--duration': '7s' }}
-        >
-          🦇
-        </div>
-        <div
-          className={styles.bat}
-          style={{ '--delay': '5s', '--duration': '9.5s' }}
-        >
-          🦇
-        </div>
+        <FlyingBats count={8} />
 
         <div ref={pumpkinRef} className={styles.pumpkin}>
           {/* Burning fire effect on top */}
