@@ -1,10 +1,10 @@
 .socialsBar {
-  @apply z-[60] flex flex-col justify-between items-center fixed bottom-0 left-0 px-4 py-5 sm:hidden;
-  min-height: 15%;
+  @apply z-[60] flex flex-col gap-6 items-center absolute left-4 px-4 py-5 sm:hidden;
+  top: 25vh;
 }
 
 .socialsBar > a {
-  @apply my-4 text-blue-light;
+  @apply text-blue-light;
 }
 
 .socialsBarIcons {

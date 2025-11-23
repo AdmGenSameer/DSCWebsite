@@ -30,8 +30,10 @@ function Screen({ children }) {
     <main id="overlayScreen" className="h-full relative">
       <div className="cursor" />
       <Navbar />
-      <SocialsBar />
-      {children}
+      <div className="relative">
+        <SocialsBar />
+        {children}
+      </div>
       <Footer />
     </main>
   );
