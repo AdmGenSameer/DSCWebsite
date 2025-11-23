@@ -103,10 +103,15 @@ function UpcomingEvents() {
                   Limited seats available - Register now before it&apos;s too
                   late!
                 </p>
-                <button className={styles.registerBtn} type="button">
+                <a
+                  href="https://forms.gle/rZSC14JJMcFysGJa6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.registerBtn}
+                >
                   🎫 Register Now - Secure Your Spot!
                   <span className={styles.btnGlow} />
-                </button>
+                </a>
               </div>
             </div>
           </div>

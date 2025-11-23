@@ -260,6 +260,7 @@
 }
 
 .registerBtn {
+  display: inline-block;
   width: 100%;
   padding: 15px 30px;
   background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
@@ -274,6 +275,8 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-decoration: none;
+  text-align: center;
 }
 
 .registerBtn:hover {
