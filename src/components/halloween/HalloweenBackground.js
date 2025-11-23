@@ -5,57 +5,22 @@ import InteractivePumpkin from './InteractivePumpkin';
 import SpiderWeb from './SpiderWeb';
 
 function HalloweenBackground({ children }) {
-  // Strategic pumpkin positions - distributed throughout the scrollable page
+  // Strategic pumpkin positions - distributed throughout the page
   const pumpkinPositions = [
-    { id: 'pumpkin-1', top: '25vh', left: '8%', size: 'medium', mobile: true },
-    { id: 'pumpkin-2', top: '45vh', left: '90%', size: 'large', mobile: true },
+    { id: 'pumpkin-1', top: '15vh', left: '8%', size: 'medium', mobile: true },
+    { id: 'pumpkin-2', top: '50vh', left: '90%', size: 'large', mobile: true },
     {
       id: 'pumpkin-3',
-      top: '60vh',
+      top: '100vh',
       left: '10%',
       size: 'small',
       mobile: false,
     },
     {
       id: 'pumpkin-4',
-      top: '120vh',
+      top: '140vh',
       left: '88%',
       size: 'medium',
-      mobile: false,
-    },
-    {
-      id: 'pumpkin-5',
-      top: '35vh',
-      left: '50%',
-      size: 'small',
-      mobile: false,
-    },
-    {
-      id: 'pumpkin-6',
-      top: '150vh',
-      left: '12%',
-      size: 'large',
-      mobile: false,
-    },
-    {
-      id: 'pumpkin-7',
-      top: '200vh',
-      left: '85%',
-      size: 'small',
-      mobile: false,
-    },
-    {
-      id: 'pumpkin-8',
-      top: '250vh',
-      left: '15%',
-      size: 'medium',
-      mobile: false,
-    },
-    {
-      id: 'pumpkin-9',
-      top: '300vh',
-      left: '90%',
-      size: 'small',
       mobile: false,
     },
   ];
@@ -69,7 +34,7 @@ function HalloweenBackground({ children }) {
         <div className={styles.vignette} />
       </div>
 
-      {/* Spider webs in corners - only top corners */}
+      {/* Spider webs in corners - only top */}
       <SpiderWeb position="top-left" />
       <SpiderWeb position="top-right" />
 
