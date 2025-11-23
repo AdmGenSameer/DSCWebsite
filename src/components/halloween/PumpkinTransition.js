@@ -152,14 +152,8 @@ function PumpkinTransition({ onComplete }) {
         const allTriggers = ScrollTrigger.getAll();
         allTriggers.forEach((trigger) => {
           try {
-            // Avoid assigning directly to a function parameter (ESLint no-param-reassign).
-            // Alias the parameter to a local const and operate on that local instead.
-            const tr = trigger;
-            if (tr.vars && tr.vars.trigger === container) {
-              if (tr.pin) {
-                tr.pin = null;
-              }
-              tr.kill();
+            if (trigger.vars && trigger.vars.trigger === container) {
+              trigger.kill();
             }
           } catch (triggerError) {
             // Ignore individual trigger errors

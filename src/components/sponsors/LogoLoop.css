@@ -1,0 +1,159 @@
+.sponsors-carousel {
+  width: 100%;
+  overflow: hidden;
+  
+  padding: 60px 0;
+  position: relative;
+}
+
+.sponsors-carousel::before,
+.sponsors-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sponsors-carousel::before {
+  left: 0;
+  /* background: linear-gradient(
+    to right,
+    var(--color-background, #fcfcf900) 0%,
+    transparent 100%
+  ); */
+}
+
+.sponsors-carousel::after {
+  right: 0;
+  /* background: linear-gradient(
+    to left,
+    var(--color-background, #fcfcf9) 0%,
+    transparent 100%
+  ); */
+}
+
+.carousel-container {
+  width: 100%;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 30s linear infinite;
+  width: fit-content;
+}
+
+.carousel-track.paused {
+  animation-play-state: paused;
+}
+
+.sponsor-card {
+  flex-shrink: 0;
+  width: 100px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.sponsor-card:hover {
+  transform: scale(1.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.sponsor-logo {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: contain;
+  border-radius: 10%;
+  /* filter: grayscale(100%); */
+  opacity: 1;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.sponsor-card:hover .sponsor-logo {
+  /* filter: grayscale(0%); */
+  opacity: 1;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Dark mode support */
+/* @media (prefers-color-scheme: dark) {
+  .sponsors-carousel {
+    background: var(--color-background, #1f2121);
+  }
+
+  .sponsors-carousel::before {
+    background: linear-gradient(
+      to right,
+      var(--color-background, #1f2121) 0%,
+      transparent 100%
+    );
+  }
+
+  .sponsors-carousel::after {
+    background: linear-gradient(
+      to left,
+      var(--color-background, #1f2121) 0%,
+      transparent 100%
+    );
+  }
+
+  .sponsor-card {
+    background: var(--color-surface, #262828);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .sponsor-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+} */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sponsor-card {
+    width: 150px;
+    height: 90px;
+    padding: 15px;
+  }
+
+  .carousel-track {
+    gap: 40px;
+    animation: scroll 20s linear infinite;
+  }
+
+  .sponsor-card:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsor-card {
+    width: 120px;
+    height: 75px;
+    padding: 12px;
+  }
+
+  .carousel-track {
+    gap: 30px;
+  }
+}
