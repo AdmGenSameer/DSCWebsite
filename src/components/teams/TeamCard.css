@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.team-card {
+  width: 300px;
+  background: linear-gradient(135deg, #252424 0%, #0e0d0d 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* Shiny Effect */
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 40%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.1) 60%,
+      transparent 100%);
+  transform: skewX(-25deg);
+  z-index: 10;
+  pointer-events: none;
+  transition: left 0.6s ease-in-out;
+}
+
+.team-card:hover .card-shine {
+  left: 100%;
+}
+
+/* Image Section */
+.card-image-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Content Section */
+.card-content {
+  padding: 20px;
+  background: linear-gradient(135deg, #191919 0%, #111111 100%);
+}
+
+.card-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+.card-team {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 6px 0;
+  font-weight: 500;
+}
+
+.card-role {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .card-image-container {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-card {
+    border-radius: 16px;
+  }
+
+  .card-image-container {
+    height: 250px;
+  }
+
+  .card-content {
+    padding: 18px;
+  }
+
+  .card-name {
+    font-size: 16px;
+  }
+
+  .card-team {
+    font-size: 14px;
+  }
+
+  .card-role {
+    font-size: 13px;
+  }
+}

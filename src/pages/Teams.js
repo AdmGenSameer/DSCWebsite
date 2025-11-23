@@ -4,8 +4,9 @@ import BottomGlitter from '../components/StyledText/BottomGlitter';
 import Screen from '../components/screen/Screen';
 import TeamCard from '../components/teams/TeamCard';
 import Styles from '../components/teams/Team.module.css';
-import { TeamData2k20, TeamData2k21, TeamData2k22 } from '../lib/data/TeamData';
+import { TeamData } from '../lib/data/TeamData';
 import HalloweenBackground from '../components/halloween/HalloweenBackground';
+import { getCloudinaryImage } from '../components/teams/GetCloudinaryImage';
 
 function Teams() {
   return (
@@ -31,80 +32,106 @@ function Teams() {
               <br />- Phil Jackson
             </h3>
           </div>
-          <h2 className={Styles.postHead}>Board Of Directors</h2>
-          <div className={Styles.cardContainer}>
-            {TeamData2k20.map((item, index) => {
+          <h2 className={Styles.postHead}>Faculty Coordinator</h2>
+          <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
+            {TeamData.facultyCoordinator.map((item, index) => {
               return (
                 <TeamCard
                   key={`${String(index)}-team`}
+                  image={getCloudinaryImage(item.image)}
                   name={item.name}
-                  title={item.title}
-                  imageSrc={`/teams/2k20/${item.imageSrc}.jpg`}
-                  lazyImageSrc={`/teams/2k20/lazy/${item.imageSrc}-min.jpg`}
-                  socials={item.socials}
+                  role={item.role}
                 />
               );
             })}
           </div>
-
-          <h2 className={Styles.postHead}>Post Bearers</h2>
-          <div className={Styles.cardContainer}>
-            {TeamData2k21.slice(0, 11).map((item, index) => {
+          <h2 className={Styles.postHead}>Panel Members</h2>
+          <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
+            {TeamData.PanelMembers.map((item, index) => {
               return (
                 <TeamCard
                   key={`${String(index)}-team`}
+                  image={getCloudinaryImage(item.image)}
                   name={item.name}
-                  title={item.title}
-                  imageSrc={`/teams/2k21/${item.imageSrc}.jpg`}
-                  lazyImageSrc={`/teams/2k21/lazy/${item.imageSrc}-min.jpg`}
-                  socials={item.socials}
+                  role={item.role}
                 />
               );
             })}
           </div>
-
-          <h2 className={Styles.postHead}>Technical Head</h2>
-          <div className={`${Styles.cardContainer}`}>
-            {TeamData2k21.slice(11, 19).map((item, index) => {
+          <h2 className={Styles.postHead}>HR Team</h2>
+          <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
+            {TeamData.hrTeam.map((item, index) => {
               return (
                 <TeamCard
                   key={`${String(index)}-team`}
+                  image={getCloudinaryImage(item.image)}
                   name={item.name}
-                  title={item.title}
-                  imageSrc={`/teams/2k21/${item.imageSrc}.jpg`}
-                  lazyImageSrc={`/teams/2k21/lazy/${item.imageSrc}-min.jpg`}
-                  socials={item.socials}
+                  role={item.role}
                 />
               );
             })}
           </div>
-
-          <h2 className={Styles.postHead}>Event Manager</h2>
-          <div className={`${Styles.cardContainer}`}>
-            {TeamData2k21.slice(19, 26).map((item, index) => {
+          <h2 className={Styles.postHead}>Photography Team</h2>
+          <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
+            {TeamData.photographyTeam.map((item, index) => {
               return (
                 <TeamCard
                   key={`${String(index)}-team`}
+                  image={getCloudinaryImage(item.image)}
                   name={item.name}
-                  title={item.title}
-                  imageSrc={`/teams/2k21/${item.imageSrc}.jpg`}
-                  lazyImageSrc={`/teams/2k21/lazy/${item.imageSrc}-min.jpg`}
-                  socials={item.socials}
+                  role={item.role}
                 />
               );
             })}
           </div>
-          <h2 className={Styles.postHead}>Our 2K22 Members</h2>
-          <div className={`${Styles.cardContainer}`}>
-            {TeamData2k22.map((item, index) => {
+          <h2 className={Styles.postHead}>Design Team</h2>
+          <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
+            {TeamData.designTeam.map((item, index) => {
               return (
                 <TeamCard
                   key={`${String(index)}-team`}
+                  image={getCloudinaryImage(item.image)}
                   name={item.name}
-                  title={item.title}
-                  imageSrc={`/teams/2k22/${item.imageSrc}.jpg`}
-                  lazyImageSrc={`/teams/2k22/lazy/${item.imageSrc}-min.jpg`}
-                  socials={item.socials}
+                  role={item.role}
+                />
+              );
+            })}
+          </div>
+          <h2 className={Styles.postHead}>Social Media Team</h2>
+          <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
+            {TeamData.socialMediaTeam.map((item, index) => {
+              return (
+                <TeamCard
+                  key={`${String(index)}-team`}
+                  image={getCloudinaryImage(item.image)}
+                  name={item.name}
+                  role={item.role}
+                />
+              );
+            })}
+          </div>
+          <h2 className={Styles.postHead}>Event Management Team</h2>
+          <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
+            {TeamData.eventManagementTeam.map((item, index) => {
+              return (
+                <TeamCard
+                  key={`${String(index)}-team`}
+                  image={getCloudinaryImage(item.image)}
+                  name={item.name}
+                  role={item.role}
+                />
+              );
+            })}
+          </div>
+          <h2 className={Styles.postHead}>Content Team</h2>
+          <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
+            {TeamData.contentTeam.map((item, index) => {
+              return (
+                <TeamCard
+                  key={`${String(index)}-team`}
+                  image={getCloudinaryImage(item.image)}
+                  name={item.name}
+                  role={item.role}
                 />
               );
             })}
