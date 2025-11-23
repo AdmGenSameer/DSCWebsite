@@ -7,8 +7,8 @@ import SpiderWeb from './SpiderWeb';
 function HalloweenBackground({ children }) {
   // Strategic pumpkin positions - distributed throughout the page
   const pumpkinPositions = [
-    { id: 'pumpkin-1', top: '15vh', left: '8%', size: 'medium', mobile: true },
-    { id: 'pumpkin-2', top: '50vh', left: '90%', size: 'large', mobile: true },
+    { id: 'pumpkin-1', top: '30vh', left: '8%', size: 'small', mobile: true },
+    { id: 'pumpkin-2', top: '80vh', left: '90%', size: 'medium', mobile: true },
     {
       id: 'pumpkin-3',
       top: '100vh',
@@ -23,18 +23,23 @@ function HalloweenBackground({ children }) {
       size: 'medium',
       mobile: false,
     },
+    {
+      id: 'pumpkin-5',
+      top: '180vh',
+      left: '5%',
+      size: 'small',
+      mobile: false,
+    },
   ];
 
-  // Random spider web positions - scattered across the page
+  // Random spider web positions - better distributed across the page
   const spiderWebPositions = [
-    { id: 'web-1', top: '10vh', left: '5%' },
-    { id: 'web-2', top: '8vh', right: '7%' },
-    { id: 'web-3', top: '45vh', left: '15%' },
-    { id: 'web-4', top: '70vh', right: '12%' },
-    { id: 'web-5', top: '120vh', left: '8%' },
-    { id: 'web-6', top: '150vh', right: '10%' },
-    { id: 'web-7', top: '200vh', left: '20%' },
-    { id: 'web-8', top: '180vh', right: '15%' },
+    { id: 'web-1', top: '25vh', left: '5%' },
+    { id: 'web-2', top: '60vh', right: '7%' },
+    { id: 'web-3', top: '100vh', left: '15%' },
+    { id: 'web-4', top: '140vh', right: '12%' },
+    { id: 'web-5', top: '180vh', left: '8%' },
+    { id: 'web-6', top: '220vh', right: '10%' },
   ];
 
   return (
