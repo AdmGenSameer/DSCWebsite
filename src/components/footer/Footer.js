@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Styles from './Footer.module.css';
-import SpookyPumpkins from '../PumpkinFooter/SpookyPumpkin';
 
 function Footer() {
   return (
@@ -86,7 +85,6 @@ function Footer() {
           Science Club Team.
         </h6>
       </div>
-      <SpookyPumpkins />
     </footer>
   );
 }

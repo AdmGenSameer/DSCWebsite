@@ -5,17 +5,25 @@ import SocialsBar from '../socialsbar/SocialsBar';
 
 function Screen({ children }) {
   useEffect(() => {
+    const overlayScreen = document.getElementById('overlayScreen');
+    if (!overlayScreen) return undefined;
+
     const callback = (e) => {
-      document.querySelector('.cursor').style.top = `${e.clientY}px`;
-      document.querySelector('.cursor').style.left = `${e.clientX}px`;
+      const cursor = document.querySelector('.cursor');
+      if (cursor) {
+        cursor.style.top = `${e.clientY}px`;
+        cursor.style.left = `${e.clientX}px`;
+      }
     };
-    document
-      .getElementById('overlayScreen')
-      .addEventListener('mousemove', callback);
-    return () =>
-      document
-        .getElementById('overlayScreen')
-        .removeEventListener('mousemove', callback);
+    
+    overlayScreen.addEventListener('mousemove', callback);
+    
+    return () => {
+      const element = document.getElementById('overlayScreen');
+      if (element) {
+        element.removeEventListener('mousemove', callback);
+      }
+    };
   }, []);
 
   return (

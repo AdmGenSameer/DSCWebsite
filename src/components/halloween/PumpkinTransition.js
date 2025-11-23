@@ -19,14 +19,23 @@ function PumpkinTransition({ onComplete }) {
     const mouth = mouthRef.current;
     const blackout = blackoutRef.current;
 
+    if (!container || !pumpkin || !fire || !mouth || !blackout) {
+      return undefined;
+    }
+
+    let scrollTriggerInstance = null;
+    let timelineInstance = null;
+
     // Create timeline
-    const tl = gsap.timeline({
+    // NOTE: pin: true causes DOM manipulation that conflicts with React unmounting
+    // Temporarily disabled to prevent removeChild errors
+    timelineInstance = gsap.timeline({
       scrollTrigger: {
         trigger: container,
         start: 'top top',
         end: '+=200%',
         scrub: 1,
-        pin: true,
+        pin: false, // Disabled to prevent DOM manipulation conflicts
         anticipatePin: 1,
         onLeave: () => {
           if (onComplete) onComplete();
@@ -34,22 +43,26 @@ function PumpkinTransition({ onComplete }) {
       },
     });
 
+    // Store reference to the ScrollTrigger instance
+    scrollTriggerInstance = timelineInstance.scrollTrigger;
+
     // Animation sequence
-    tl.fromTo(
-      pumpkin,
-      {
-        scale: 0.3,
-        opacity: 0,
-        filter: 'brightness(0.5)',
-      },
-      {
-        scale: 1,
-        opacity: 1,
-        filter: 'brightness(1)',
-        duration: 0.3,
-        ease: 'power2.out',
-      }
-    )
+    timelineInstance
+      .fromTo(
+        pumpkin,
+        {
+          scale: 0.3,
+          opacity: 0,
+          filter: 'brightness(0.5)',
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          filter: 'brightness(1)',
+          duration: 0.3,
+          ease: 'power2.out',
+        }
+      )
       .to(
         fire,
         {
@@ -97,7 +110,69 @@ function PumpkinTransition({ onComplete }) {
       );
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // CRITICAL: Unpin and kill ScrollTrigger BEFORE killing timeline
+      // This ensures DOM nodes are restored to their original positions
+      // We need to do this synchronously to prevent React from trying to remove pinned nodes
+      
+      // First, refresh ScrollTrigger to ensure all pins are released
+      try {
+        ScrollTrigger.refresh();
+      } catch (error) {
+        // Ignore refresh errors
+      }
+
+      // Kill the specific ScrollTrigger instance
+      if (scrollTriggerInstance) {
+        try {
+          // Unpin first if possible
+          if (scrollTriggerInstance.pin) {
+            scrollTriggerInstance.pin = null;
+          }
+          scrollTriggerInstance.kill();
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.warn('Error killing ScrollTrigger:', error);
+        }
+        scrollTriggerInstance = null;
+      }
+
+      // Kill the timeline
+      if (timelineInstance) {
+        try {
+          timelineInstance.kill();
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.warn('Error killing timeline:', error);
+        }
+        timelineInstance = null;
+      }
+
+      // Additional cleanup: kill any remaining ScrollTriggers for this container
+      try {
+        const allTriggers = ScrollTrigger.getAll();
+        allTriggers.forEach((trigger) => {
+          try {
+            if (trigger.vars && trigger.vars.trigger === container) {
+              if (trigger.pin) {
+                trigger.pin = null;
+              }
+              trigger.kill();
+            }
+          } catch (triggerError) {
+            // Ignore individual trigger errors
+          }
+        });
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.warn('Error cleaning up ScrollTriggers:', error);
+      }
+
+      // Final safety: refresh one more time to ensure DOM is restored
+      try {
+        ScrollTrigger.refresh();
+      } catch (error) {
+        // Ignore refresh errors
+      }
     };
   }, [onComplete]);
 
