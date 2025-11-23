@@ -4,7 +4,11 @@ import './LogoLoop.css';
 function SponsorsCarousel({ sponsors }) {
   const [isPaused, setIsPaused] = useState(false);
 
-  const duplicatedSponsors = [...sponsors, ...sponsors];
+  // Create duplicated sponsors with unique identifiers
+  const duplicatedSponsors = [
+    ...sponsors.map((sponsor, idx) => ({ ...sponsor, uniqueId: `original-${idx}` })),
+    ...sponsors.map((sponsor, idx) => ({ ...sponsor, uniqueId: `duplicate-${idx}` }))
+  ];
 
   return (
     <div className="sponsors-carousel">
@@ -15,7 +19,7 @@ function SponsorsCarousel({ sponsors }) {
           onMouseLeave={() => setIsPaused(false)}
         >
           {duplicatedSponsors.map((sponsor) => (
-            <div key={sponsor.id || sponsor.name} className="sponsor-card">
+            <div key={sponsor.uniqueId} className="sponsor-card">
               <img
                 src={sponsor.logo}
                 alt={sponsor.name}

@@ -3,7 +3,7 @@ import BottomGlitter from '../StyledText/BottomGlitter';
 import SponsorsCarousel from './LogoLoop';
 
 function Sponsors() {
-  const ref = useRef();
+  const ref = useRef(null); // Added null for better practice
 
   const sponsors = [
     {
@@ -47,10 +47,12 @@ function Sponsors() {
       }
     };
 
+    handleScroll(); // Call once on mount
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return (
     <section ref={ref} className="container-70 my-16 py-16 fadeonscroll">
       <BottomGlitter text="Our Sponsors" />

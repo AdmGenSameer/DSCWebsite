@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Notice from '../components/Notice';
-import Associations from '../components/associations/Associations';
+// import Associations from '../components/associations/Associations';
 import GridGallery from '../components/gridGallery/GridGallery';
 import HomeAbout from '../components/homeAbout/HomeAbout';
 import Screen from '../components/screen/Screen';
@@ -85,7 +85,7 @@ export default function Home() {
               <TechStack />
               <GridGallery />
               <Sponsors />
-              <Associations />
+              {/* <Associations /> */}
             </Screen>
           </HalloweenBackground>
         </div>
