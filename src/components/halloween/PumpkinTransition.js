@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './PumpkinTransition.module.css';
@@ -11,6 +11,7 @@ function PumpkinTransition({ onComplete }) {
   const fireRef = useRef(null);
   const mouthRef = useRef(null);
   const blackoutRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -23,28 +24,42 @@ function PumpkinTransition({ onComplete }) {
       return undefined;
     }
 
+    // Disable body scroll initially
+    document.body.style.overflow = 'hidden';
+    document.body.style.height = '100vh';
+
     let scrollTriggerInstance = null;
     let timelineInstance = null;
+    let animationComplete = false;
 
-    // Create timeline
-    // NOTE: pin: true causes DOM manipulation that conflicts with React unmounting
-    // Temporarily disabled to prevent removeChild errors
-    timelineInstance = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        start: 'top top',
-        end: '+=200%',
-        scrub: 1,
-        pin: false, // Disabled to prevent DOM manipulation conflicts
-        anticipatePin: 1,
-        onLeave: () => {
-          if (onComplete) onComplete();
-        },
-      },
-    });
+    // Handle scroll events for manual animation control
+    const handleScroll = (e) => {
+      if (animationComplete) return;
 
-    // Store reference to the ScrollTrigger instance
-    scrollTriggerInstance = timelineInstance.scrollTrigger;
+      e.preventDefault();
+      const delta = e.deltaY || e.detail || e.wheelDelta;
+
+      if (delta > 0) {
+        // Scrolling down - progress animation
+        setScrollProgress((prev) => {
+          const newProgress = Math.min(prev + 0.02, 1);
+          if (newProgress >= 1 && !animationComplete) {
+            animationComplete = true;
+            setTimeout(() => {
+              if (onComplete) onComplete();
+            }, 500);
+          }
+          return newProgress;
+        });
+      }
+    };
+
+    // Add scroll listener
+    window.addEventListener('wheel', handleScroll, { passive: false });
+    window.addEventListener('touchmove', handleScroll, { passive: false });
+
+    // Create timeline without ScrollTrigger
+    timelineInstance = gsap.timeline({ paused: true });
 
     // Animation sequence
     timelineInstance
@@ -110,31 +125,13 @@ function PumpkinTransition({ onComplete }) {
       );
 
     return () => {
-      // CRITICAL: Unpin and kill ScrollTrigger BEFORE killing timeline
-      // This ensures DOM nodes are restored to their original positions
-      // We need to do this synchronously to prevent React from trying to remove pinned nodes
+      // Cleanup
+      window.removeEventListener('wheel', handleScroll);
+      window.removeEventListener('touchmove', handleScroll);
 
-      // First, refresh ScrollTrigger to ensure all pins are released
-      try {
-        ScrollTrigger.refresh();
-      } catch (error) {
-        // Ignore refresh errors
-      }
-
-      // Kill the specific ScrollTrigger instance
-      if (scrollTriggerInstance) {
-        try {
-          // Unpin first if possible
-          if (scrollTriggerInstance.pin) {
-            scrollTriggerInstance.pin = null;
-          }
-          scrollTriggerInstance.kill();
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.warn('Error killing ScrollTrigger:', error);
-        }
-        scrollTriggerInstance = null;
-      }
+      // Re-enable body scroll
+      document.body.style.overflow = '';
+      document.body.style.height = '';
 
       // Kill the timeline
       if (timelineInstance) {
@@ -147,31 +144,83 @@ function PumpkinTransition({ onComplete }) {
         timelineInstance = null;
       }
 
-      // Additional cleanup: kill any remaining ScrollTriggers for this container
-      try {
-        const allTriggers = ScrollTrigger.getAll();
-        allTriggers.forEach((trigger) => {
-          try {
-            if (trigger.vars && trigger.vars.trigger === container) {
-              trigger.kill();
-            }
-          } catch (triggerError) {
-            // Ignore individual trigger errors
-          }
-        });
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.warn('Error cleaning up ScrollTriggers:', error);
-      }
-
-      // Final safety: refresh one more time to ensure DOM is restored
-      try {
-        ScrollTrigger.refresh();
-      } catch (error) {
-        // Ignore refresh errors
+      // Kill ScrollTrigger instance if exists
+      if (scrollTriggerInstance) {
+        try {
+          scrollTriggerInstance.kill();
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.warn('Error killing ScrollTrigger:', error);
+        }
+        scrollTriggerInstance = null;
       }
     };
   }, [onComplete]);
+
+  // Update animation progress based on scroll
+  useEffect(() => {
+    const container = containerRef.current;
+    const pumpkin = pumpkinRef.current;
+    const fire = fireRef.current;
+    const mouth = mouthRef.current;
+    const blackout = blackoutRef.current;
+
+    if (!container || !pumpkin || !fire || !mouth || !blackout) {
+      return;
+    }
+
+    // Manually animate based on scroll progress
+    const progress = scrollProgress;
+
+    if (progress < 0.3) {
+      // Phase 1: Fade in and grow
+      const phase1Progress = progress / 0.3;
+      gsap.set(pumpkin, {
+        scale: 0.3 + phase1Progress * 0.7,
+        opacity: phase1Progress,
+        filter: `brightness(${0.5 + phase1Progress * 0.5})`,
+      });
+      gsap.set(fire, {
+        scale: 0.8 + phase1Progress * 0.4,
+        opacity: phase1Progress,
+      });
+    } else if (progress < 0.6) {
+      // Phase 2: Grow larger
+      const phase2Progress = (progress - 0.3) / 0.3;
+      gsap.set(pumpkin, {
+        scale: 1 + phase2Progress * 1.5,
+        opacity: 1,
+        filter: 'brightness(1)',
+      });
+      gsap.set(fire, {
+        scale: 1.2 + phase2Progress * 1.6,
+        opacity: 1,
+      });
+      gsap.set(mouth, {
+        opacity: phase2Progress,
+        filter: `brightness(${1 + phase2Progress})`,
+      });
+    } else {
+      // Phase 3: Zoom and blackout
+      const phase3Progress = (progress - 0.6) / 0.4;
+      gsap.set(pumpkin, {
+        scale: 2.5 + phase3Progress * 2.5,
+        opacity: 1,
+        filter: 'brightness(1)',
+      });
+      gsap.set(fire, {
+        scale: 2.8 + phase3Progress * 2,
+        opacity: 1,
+      });
+      gsap.set(mouth, {
+        opacity: 1,
+        filter: 'brightness(2)',
+      });
+      gsap.set(blackout, {
+        opacity: phase3Progress,
+      });
+    }
+  }, [scrollProgress]);
 
   return (
     <div ref={containerRef} className={styles.transitionContainer}>

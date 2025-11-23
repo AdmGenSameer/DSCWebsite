@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Notice from '../components/Notice';
 import Associations from '../components/associations/Associations';
@@ -14,6 +14,33 @@ import UpcomingEvents from '../components/UpcomingEvents/UpcomingEvents';
 import PumpkinTransition from '../components/halloween/PumpkinTransition';
 
 export default function Home() {
+  const [showTransition, setShowTransition] = useState(false);
+  const [transitionComplete, setTransitionComplete] = useState(false);
+
+  useEffect(() => {
+    // Check if transition has been shown in this session
+    const hasSeenTransition = sessionStorage.getItem('pumpkinTransitionShown');
+
+    if (!hasSeenTransition) {
+      setShowTransition(true);
+    } else {
+      setTransitionComplete(true);
+    }
+  }, []);
+
+  const handleTransitionComplete = () => {
+    // Mark transition as shown for this session
+    sessionStorage.setItem('pumpkinTransitionShown', 'true');
+
+    // Re-enable body scroll
+    document.body.style.overflow = '';
+    document.body.style.height = '';
+
+    // Hide transition and show main content
+    setShowTransition(false);
+    setTransitionComplete(true);
+  };
+
   return (
     <>
       <Helmet>
@@ -28,22 +55,26 @@ export default function Home() {
         />
       </Helmet>
 
-      {/* Cinematic pumpkin entrance */}
-      <PumpkinTransition />
+      {/* Cinematic pumpkin entrance - only on first load */}
+      {showTransition && (
+        <PumpkinTransition onComplete={handleTransitionComplete} />
+      )}
 
-      {/* Main content */}
-      <HalloweenBackground>
-        <Screen>
-          <Notice />
-          <Video />
-          <UpcomingEvents />
-          <HomeAbout />
-          <TechStack />
-          <GridGallery />
-          <Sponsors />
-          <Associations />
-        </Screen>
-      </HalloweenBackground>
+      {/* Main content - only show after transition completes */}
+      {transitionComplete && (
+        <HalloweenBackground>
+          <Screen>
+            <Notice />
+            <Video />
+            <UpcomingEvents />
+            <HomeAbout />
+            <TechStack />
+            <GridGallery />
+            <Sponsors />
+            <Associations />
+          </Screen>
+        </HalloweenBackground>
+      )}
     </>
   );
 }
