@@ -98,7 +98,7 @@
 .pumpkinsLayer {
   pointer-events: none;
   z-index: 1;
-  min-height: 200vh;
+  min-height: 350vh;
 }
 
 .pumpkinMobile,
