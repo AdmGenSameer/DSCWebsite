@@ -4,7 +4,9 @@
   max-width: 100vw;
   background: transparent;
   overflow-x: hidden;
+  overflow-y: visible;
   cursor: none;
+  min-height: 100vh;
 }
 
 .halloweenWrapper * {
@@ -91,7 +93,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   pointer-events: none;
   z-index: 1;
 }
