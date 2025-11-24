@@ -87,7 +87,9 @@ function Video() {
 
   const [activeVariant, setActiveVariant] = useState(null);
   const [isIntersecting, setIsIntersecting] = useState(true);
+  const [mobileVideoLoading, setMobileVideoLoading] = useState(true);
   const videoRef = useRef(null);
+  const mobileVideoRef = useRef(null);
   const containerRef = useRef(null);
 
   const shouldShowVideo =
@@ -182,6 +184,48 @@ function Video() {
     };
   }, [activeVariant, shouldShowVideo]);
 
+  // Handle mobile video loading
+  useEffect(() => {
+    if (canUseInteractiveVideo || !mobileVideoRef.current) {
+      return undefined;
+    }
+
+    const video = mobileVideoRef.current;
+
+    const handleCanPlay = () => {
+      setMobileVideoLoading(false);
+    };
+
+    const handleLoadStart = () => {
+      setMobileVideoLoading(true);
+    };
+
+    const handleWaiting = () => {
+      setMobileVideoLoading(true);
+    };
+
+    const handlePlaying = () => {
+      setMobileVideoLoading(false);
+    };
+
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('loadstart', handleLoadStart);
+    video.addEventListener('waiting', handleWaiting);
+    video.addEventListener('playing', handlePlaying);
+
+    // Check if video is already loaded
+    if (video.readyState >= 3) {
+      setMobileVideoLoading(false);
+    }
+
+    return () => {
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('loadstart', handleLoadStart);
+      video.removeEventListener('waiting', handleWaiting);
+      video.removeEventListener('playing', handlePlaying);
+    };
+  }, [canUseInteractiveVideo]);
+
   return (
     <section className={styles.video}>
       {canUseInteractiveVideo ? (
@@ -220,7 +264,14 @@ function Video() {
         </>
       ) : (
         <div className={styles.mobileVideoContainer}>
+          {mobileVideoLoading && (
+            <div className={styles.videoLoader}>
+              <div className={styles.spinner} />
+              <p className={styles.loadingText}>Loading...</p>
+            </div>
+          )}
           <video
+            ref={mobileVideoRef}
             src="/WhatsApp Video 2025-11-23 at 10.mp4"
             autoPlay
             muted
@@ -234,6 +285,8 @@ function Video() {
             className={styles.mobileVideo}
             style={{
               willChange: 'auto',
+              opacity: mobileVideoLoading ? 0 : 1,
+              transition: 'opacity 0.3s ease-in-out',
             }}
           >
             <track kind="captions" />
