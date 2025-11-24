@@ -141,7 +141,7 @@ function Sidebar({ isMounted, unmount }) {
             /* For Christmas theme */
             // className="bg-primary-light text-primary xs:!py-3"
           >
-            <span style={SpanStyle}>Join Us</span>
+            <span style={SpanStyle}>Participate</span>
           </Button>
         </a>
       </div>

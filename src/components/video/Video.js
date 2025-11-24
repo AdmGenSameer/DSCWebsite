@@ -219,7 +219,7 @@ function Video() {
       ) : (
         <div className={styles.mobileVideoContainer}>
           <video
-            src="/WhatsApp Video 2025-11-23 at 10.41.31 PM.mp4"
+            src="/WhatsApp Video 2025-11-23 at 10.mp4"
             autoPlay
             muted
             loop
