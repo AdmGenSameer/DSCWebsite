@@ -32,6 +32,7 @@ function PumpkinTransition({ onComplete }) {
     let scrollTriggerInstance = null;
     let timelineInstance = null;
     let animationComplete = false;
+    let touchStartY = 0;
 
     // Handle scroll events for manual animation control
     const handleScroll = (e) => {
@@ -55,9 +56,41 @@ function PumpkinTransition({ onComplete }) {
       }
     };
 
-    // Add scroll listener
+    // Handle touch start
+    const handleTouchStart = (e) => {
+      if (animationComplete) return;
+      touchStartY = e.touches[0].clientY;
+    };
+
+    // Handle touch move
+    const handleTouchMove = (e) => {
+      if (animationComplete) return;
+
+      e.preventDefault();
+      const touchY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchY;
+
+      // Only progress if swiping up (deltaY > 0)
+      if (deltaY > 5) {
+        // Threshold of 5px to avoid accidental touches
+        setScrollProgress((prev) => {
+          const newProgress = Math.min(prev + 0.02, 1);
+          if (newProgress >= 1 && !animationComplete) {
+            animationComplete = true;
+            setTimeout(() => {
+              if (onComplete) onComplete();
+            }, 500);
+          }
+          return newProgress;
+        });
+        touchStartY = touchY; // Reset start position for continuous scrolling
+      }
+    };
+
+    // Add scroll and touch listeners
     window.addEventListener('wheel', handleScroll, { passive: false });
-    window.addEventListener('touchmove', handleScroll, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
 
     // Create timeline without ScrollTrigger
     timelineInstance = gsap.timeline({ paused: true });
@@ -128,7 +161,8 @@ function PumpkinTransition({ onComplete }) {
     return () => {
       // Cleanup
       window.removeEventListener('wheel', handleScroll);
-      window.removeEventListener('touchmove', handleScroll);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
 
       // Re-enable body scroll
       document.body.style.overflow = '';
