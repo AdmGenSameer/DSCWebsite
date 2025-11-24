@@ -4,10 +4,10 @@ import FlyingBats from './FlyingBats';
 import InteractivePumpkin from './InteractivePumpkin';
 import SpiderWeb from './SpiderWeb';
 
-function HalloweenBackground({ children }) {
+function HalloweenBackground({ children, isHomePage = false }) {
   // Strategic pumpkin positions - distributed throughout the page
   // Limited to not extend below footer (max 300vh)
-  const pumpkinPositions = [
+  const basePumpkinPositions = [
     { id: 'pumpkin-1', top: '30vh', left: '8%', size: 'small', mobile: true },
     { id: 'pumpkin-2', top: '80vh', left: '90%', size: 'medium', mobile: true },
     {
@@ -54,9 +54,45 @@ function HalloweenBackground({ children }) {
     },
   ];
 
+  // Extra decorations only for home page
+  const extraPumpkinPositions = [
+    {
+      id: 'pumpkin-9',
+      top: '320vh',
+      left: '8%',
+      size: 'medium',
+      mobile: false,
+    },
+    {
+      id: 'pumpkin-10',
+      top: '360vh',
+      left: '88%',
+      size: 'small',
+      mobile: false,
+    },
+    {
+      id: 'pumpkin-11',
+      top: '400vh',
+      left: '12%',
+      size: 'medium',
+      mobile: false,
+    },
+    {
+      id: 'pumpkin-12',
+      top: '440vh',
+      left: '85%',
+      size: 'small',
+      mobile: false,
+    },
+  ];
+
+  const pumpkinPositions = isHomePage
+    ? [...basePumpkinPositions, ...extraPumpkinPositions]
+    : basePumpkinPositions;
+
   // Random spider web positions - better distributed across the page
   // Limited to not extend below footer (max 300vh)
-  const spiderWebPositions = [
+  const baseSpiderWebPositions = [
     { id: 'web-1', top: '25vh', left: '5%' },
     { id: 'web-2', top: '60vh', right: '7%' },
     { id: 'web-3', top: '100vh', left: '15%' },
@@ -66,6 +102,18 @@ function HalloweenBackground({ children }) {
     { id: 'web-7', top: '260vh', left: '18%' },
     { id: 'web-8', top: '290vh', right: '15%' },
   ];
+
+  // Extra spider webs only for home page
+  const extraSpiderWebPositions = [
+    { id: 'web-9', top: '330vh', left: '10%' },
+    { id: 'web-10', top: '370vh', right: '12%' },
+    { id: 'web-11', top: '410vh', left: '15%' },
+    { id: 'web-12', top: '450vh', right: '18%' },
+  ];
+
+  const spiderWebPositions = isHomePage
+    ? [...baseSpiderWebPositions, ...extraSpiderWebPositions]
+    : baseSpiderWebPositions;
 
   return (
     <div className={styles.halloweenWrapper}>
@@ -96,7 +144,10 @@ function HalloweenBackground({ children }) {
       ))}
 
       {/* Flying bats (ambient) */}
-      <FlyingBats count={24} />
+      <FlyingBats
+        count={isHomePage ? 32 : 24}
+        maxHeight={isHomePage ? 450 : 280}
+      />
 
       {/* Interactive pumpkins */}
       <div className={styles.pumpkinsLayer}>

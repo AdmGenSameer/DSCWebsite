@@ -76,7 +76,7 @@ export default function Home() {
             transition: 'opacity 1.2s ease-out, transform 1.2s ease-out',
           }}
         >
-          <HalloweenBackground>
+          <HalloweenBackground isHomePage>
             <Screen>
               <Notice />
               <Video />
