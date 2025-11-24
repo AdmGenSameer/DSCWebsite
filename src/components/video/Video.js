@@ -91,6 +91,7 @@ function Video() {
   const [mobileVideoLoading, setMobileVideoLoading] = useState(true);
   const [isMobileVideoReady, setIsMobileVideoReady] = useState(false);
   const [showMobilePoster, setShowMobilePoster] = useState(true);
+  const [posterImageLoaded, setPosterImageLoaded] = useState(false);
   const videoRef = useRef(null);
   const mobileVideoRef = useRef(null);
   const containerRef = useRef(null);
@@ -210,20 +211,16 @@ function Video() {
     };
 
     const handleCanPlay = () => {
-      // Some browsers fire canplay before canplaythrough; use as soft-ready signal
-      setIsMobileVideoReady(true);
-      setMobileVideoLoading(false);
-      if (video.paused) {
-        const playPromise = video.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-          playPromise.catch(() => {});
-        }
-      }
+      // Don't play yet - wait for full buffer
+      setMobileVideoLoading(true);
     };
 
     const handleCanPlayThrough = () => {
+      // Video is fully buffered and ready to play smoothly
       setIsMobileVideoReady(true);
       setMobileVideoLoading(false);
+
+      // Start playing only after full download
       if (video.paused) {
         const playPromise = video.play();
         if (playPromise && typeof playPromise.catch === 'function') {
@@ -233,13 +230,14 @@ function Video() {
     };
 
     const handlePlaying = () => {
+      // Video has started playing - now hide poster
       setMobileVideoLoading(false);
       if (posterHideTimeoutRef.current) {
         clearTimeout(posterHideTimeoutRef.current);
       }
       posterHideTimeoutRef.current = window.setTimeout(() => {
         setPosterVisible(false);
-      }, 120);
+      }, 300);
     };
 
     const handleError = () => {
@@ -255,8 +253,10 @@ function Video() {
     video.addEventListener('playing', handlePlaying);
     video.addEventListener('error', handleError);
 
-    // Kick off loading explicitly to ensure buffering begins behind the poster
-    video.load();
+    // Start loading video only after poster image is ready
+    if (posterImageLoaded) {
+      video.load();
+    }
 
     return () => {
       if (posterHideTimeoutRef.current) {
@@ -269,7 +269,7 @@ function Video() {
       video.removeEventListener('playing', handlePlaying);
       video.removeEventListener('error', handleError);
     };
-  }, [canUseInteractiveVideo]);
+  }, [canUseInteractiveVideo, posterImageLoaded]);
 
   return (
     <section className={styles.video}>
@@ -319,8 +319,9 @@ function Video() {
             <img
               src={MOBILE_POSTER_IMAGE}
               alt="Halloween Nights placeholder"
-              loading="lazy"
+              loading="eager"
               decoding="async"
+              onLoad={() => setPosterImageLoaded(true)}
               className={styles.posterImage}
             />
             <div className={styles.posterOverlay}>
@@ -336,8 +337,8 @@ function Video() {
             loop
             playsInline
             controls={false}
-            preload="auto"
-            poster={MOBILE_POSTER_IMAGE}
+            preload="metadata"
+            poster=""
             disablePictureInPicture
             disableRemotePlayback
             className={styles.mobileVideo}
@@ -346,8 +347,8 @@ function Video() {
             style={{
               willChange: 'auto',
               opacity: showMobilePoster ? 0 : 1,
-              transition: 'opacity 0.6s ease, transform 0.6s ease',
-              transform: showMobilePoster ? 'scale(1.04)' : 'scale(1)',
+              transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
+              transform: showMobilePoster ? 'scale(1.05)' : 'scale(1)',
             }}
           >
             <track kind="captions" />
