@@ -13,6 +13,12 @@ function PumpkinTransition({ onComplete }) {
   const mouthRef = useRef(null);
   const blackoutRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile device
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -73,13 +79,15 @@ function PumpkinTransition({ onComplete }) {
       // Only progress if swiping up (deltaY > 0)
       if (deltaY > 5) {
         // Threshold of 5px to avoid accidental touches
+        // Faster progression on mobile for better responsiveness
+        const increment = isMobile ? 0.04 : 0.02;
         setScrollProgress((prev) => {
-          const newProgress = Math.min(prev + 0.02, 1);
+          const newProgress = Math.min(prev + increment, 1);
           if (newProgress >= 1 && !animationComplete) {
             animationComplete = true;
             setTimeout(() => {
               if (onComplete) onComplete();
-            }, 500);
+            }, 300); // Faster on mobile
           }
           return newProgress;
         });
@@ -190,7 +198,7 @@ function PumpkinTransition({ onComplete }) {
         scrollTriggerInstance = null;
       }
     };
-  }, [onComplete]);
+  }, [onComplete, isMobile]);
 
   // Update animation progress based on scroll
   useEffect(() => {
@@ -208,79 +216,89 @@ function PumpkinTransition({ onComplete }) {
     const progress = scrollProgress;
     const easeOutQuad = (t) => t * (2 - t); // Smooth easing function
 
+    // Mobile: faster, simpler animations. Desktop: smoother, more detailed
+    const animDuration = isMobile ? 0.05 : 0.15;
+    const animDuration2 = isMobile ? 0.08 : 0.2;
+
     if (progress < 0.3) {
       // Phase 1: Fade in and grow (snappier with shorter duration)
       const phase1Progress = easeOutQuad(progress / 0.3);
       gsap.to(pumpkin, {
         scale: 0.3 + phase1Progress * 0.7,
         opacity: phase1Progress,
-        filter: `brightness(${0.5 + phase1Progress * 0.5})`,
-        duration: 0.15, // Reduced from 0.3 for snappier feel
+        filter: isMobile ? 'none' : `brightness(${0.5 + phase1Progress * 0.5})`,
+        duration: animDuration,
         ease: 'power2.out',
       });
-      gsap.to(fire, {
-        scale: 0.8 + phase1Progress * 0.4,
-        opacity: phase1Progress,
-        duration: 0.15, // Reduced from 0.3 for snappier feel
-        ease: 'power2.out',
-      });
+      if (!isMobile) {
+        gsap.to(fire, {
+          scale: 0.8 + phase1Progress * 0.4,
+          opacity: phase1Progress,
+          duration: animDuration,
+          ease: 'power2.out',
+        });
+      }
     } else if (progress < 0.6) {
       // Phase 2: Grow larger (snappier with shorter duration)
       const phase2Progress = easeOutQuad((progress - 0.3) / 0.3);
       gsap.to(pumpkin, {
         scale: 1 + phase2Progress * 1.5,
         opacity: 1,
-        filter: 'brightness(1)',
-        duration: 0.2, // Reduced from 0.4 for snappier feel
+        filter: 'none',
+        duration: animDuration2,
         ease: 'power2.inOut',
       });
-      gsap.to(fire, {
-        scale: 1.2 + phase2Progress * 1.6,
-        opacity: 1,
-        duration: 0.2, // Reduced from 0.4 for snappier feel
-        ease: 'power2.inOut',
-      });
-      gsap.to(mouth, {
-        opacity: phase2Progress,
-        filter: `brightness(${1 + phase2Progress})`,
-        duration: 0.15, // Reduced from 0.3 for snappier feel
-        ease: 'power2.out',
-      });
+      if (!isMobile) {
+        gsap.to(fire, {
+          scale: 1.2 + phase2Progress * 1.6,
+          opacity: 1,
+          duration: animDuration2,
+          ease: 'power2.inOut',
+        });
+        gsap.to(mouth, {
+          opacity: phase2Progress,
+          filter: `brightness(${1 + phase2Progress})`,
+          duration: animDuration,
+          ease: 'power2.out',
+        });
+      }
     } else {
       // Phase 3: Zoom and blackout (snappier with shorter duration)
       const phase3Progress = easeOutQuad((progress - 0.6) / 0.4);
       gsap.to(pumpkin, {
         scale: 2.5 + phase3Progress * 2.5,
         opacity: 1,
-        filter: 'brightness(1)',
-        duration: 0.25, // Reduced from 0.5 for snappier feel
+        filter: 'none',
+        duration: isMobile ? 0.1 : 0.25,
         ease: 'power2.in',
       });
-      gsap.to(fire, {
-        scale: 2.8 + phase3Progress * 2,
-        opacity: 1,
-        duration: 0.25, // Reduced from 0.5 for snappier feel
-        ease: 'power2.in',
-      });
-      gsap.to(mouth, {
-        opacity: 1,
-        filter: 'brightness(2)',
-        duration: 0.15, // Reduced from 0.3 for snappier feel
-        ease: 'power2.out',
-      });
+      if (!isMobile) {
+        gsap.to(fire, {
+          scale: 2.8 + phase3Progress * 2,
+          opacity: 1,
+          duration: 0.25,
+          ease: 'power2.in',
+        });
+        gsap.to(mouth, {
+          opacity: 1,
+          filter: 'brightness(2)',
+          duration: 0.15,
+          ease: 'power2.out',
+        });
+      }
       gsap.to(blackout, {
         opacity: phase3Progress,
-        duration: 0.2, // Reduced from 0.4 for snappier feel
+        duration: isMobile ? 0.1 : 0.2,
         ease: 'power2.inOut',
       });
     }
-  }, [scrollProgress]);
+  }, [scrollProgress, isMobile]);
 
   return (
     <div ref={containerRef} className={styles.transitionContainer}>
       <div className={styles.darkBackground}>
-        {/* Flying bats around the scene */}
-        <FlyingBats count={8} />
+        {/* Flying bats around the scene - disabled on mobile for performance */}
+        {!isMobile && <FlyingBats count={8} />}
 
         <div ref={pumpkinRef} className={styles.pumpkin}>
           {/* Burning fire effect on top */}

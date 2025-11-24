@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './HalloweenBackground.module.css';
 import FlyingBats from './FlyingBats';
 import InteractivePumpkin from './InteractivePumpkin';
 import SpiderWeb from './SpiderWeb';
 
 function HalloweenBackground({ children, isHomePage = false }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
   // Strategic pumpkin positions - distributed throughout the page
   // Limited to not extend below footer (max 300vh)
   const basePumpkinPositions = [
@@ -115,60 +120,74 @@ function HalloweenBackground({ children, isHomePage = false }) {
     ? [...baseSpiderWebPositions, ...extraSpiderWebPositions]
     : baseSpiderWebPositions;
 
+  // Calculate bat count based on device and page type
+  let batCount;
+  if (isMobile) {
+    batCount = isHomePage ? 8 : 5;
+  } else {
+    batCount = isHomePage ? 32 : 24;
+  }
+
   return (
     <div
       className={`${styles.halloweenWrapper} ${
         isHomePage ? styles.homePage : ''
       }`}
     >
-      {/* Atmospheric background layers */}
-      <div className={styles.atmosphericLayer}>
-        <div className={styles.fogLayer} />
-        <div className={styles.darkGradient} />
-        <div className={styles.vignette} />
-      </div>
-
-      {/* Spider webs scattered randomly */}
-      {spiderWebPositions.map((web, index) => (
-        <div
-          key={web.id}
-          style={{
-            position: 'absolute',
-            top: web.top,
-            left: web.left,
-            right: web.right,
-            pointerEvents: 'none',
-            zIndex: 1,
-            '--random-rotation': `${(index * 45) % 360}deg`,
-            '--random-scale': 0.6 + (index % 3) * 0.2,
-          }}
-        >
-          <SpiderWeb position="custom" />
+      {/* Atmospheric background layers - disabled on mobile for performance */}
+      {!isMobile && (
+        <div className={styles.atmosphericLayer}>
+          <div className={styles.fogLayer} />
+          <div className={styles.darkGradient} />
+          <div className={styles.vignette} />
         </div>
-      ))}
+      )}
 
-      {/* Flying bats (ambient) */}
+      {/* Spider webs scattered randomly - reduced on mobile for performance */}
+      {spiderWebPositions
+        .filter((web, index) => !isMobile || index % 2 === 0)
+        .map((web, index) => (
+          <div
+            key={web.id}
+            style={{
+              position: 'absolute',
+              top: web.top,
+              left: web.left,
+              right: web.right,
+              pointerEvents: 'none',
+              zIndex: 1,
+              '--random-rotation': `${(index * 45) % 360}deg`,
+              '--random-scale': 0.6 + (index % 3) * 0.2,
+            }}
+          >
+            <SpiderWeb position="custom" />
+          </div>
+        ))}
+
+      {/* Flying bats (ambient) - drastically reduced on mobile for performance */}
       <FlyingBats
-        count={isHomePage ? 32 : 24}
+        count={batCount}
         maxHeight={isHomePage ? 450 : 280}
         isHomePage={isHomePage}
       />
 
-      {/* Interactive pumpkins */}
+      {/* Interactive pumpkins - show only mobile pumpkins on mobile devices */}
       <div className={styles.pumpkinsLayer}>
-        {pumpkinPositions.map((pos) => (
-          <div
-            key={pos.id}
-            className={
-              pos.mobile ? styles.pumpkinMobile : styles.pumpkinDesktop
-            }
-          >
-            <InteractivePumpkin
-              position={{ top: pos.top, left: pos.left }}
-              size={pos.size}
-            />
-          </div>
-        ))}
+        {pumpkinPositions
+          .filter((pos) => !isMobile || pos.mobile)
+          .map((pos) => (
+            <div
+              key={pos.id}
+              className={
+                pos.mobile ? styles.pumpkinMobile : styles.pumpkinDesktop
+              }
+            >
+              <InteractivePumpkin
+                position={{ top: pos.top, left: pos.left }}
+                size={pos.size}
+              />
+            </div>
+          ))}
       </div>
 
       {/* Main content */}

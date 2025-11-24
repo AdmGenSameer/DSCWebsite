@@ -26,6 +26,16 @@
   height: 400px;
   transform-origin: center center;
   filter: drop-shadow(0 0 60px rgba(255, 100, 0, 0.8));
+  will-change: transform, opacity;
+}
+
+/* Mobile optimization - simpler rendering */
+@media (max-width: 767px) {
+  .pumpkin {
+    filter: drop-shadow(0 0 30px rgba(255, 100, 0, 0.5));
+    width: 300px;
+    height: 300px;
+  }
 }
 
 .pumpkinBody {
@@ -640,6 +650,7 @@
   opacity: 0;
   z-index: 10;
   pointer-events: none;
+  will-change: opacity;
 }
 
 /* Scroll indicator */
