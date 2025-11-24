@@ -27,6 +27,7 @@ const VIDEO_VARIANTS_MAP = VIDEO_VARIANTS.reduce((acc, variant) => {
 const DESKTOP_QUERY = '(min-width: 600px)';
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
 const FINE_POINTER_QUERY = '(pointer: fine)';
+const MOBILE_POSTER_IMAGE = '/WhatsApp Image 2025-11-24 at 11.03.44 PM.jpeg';
 
 function useMediaQuery(query, defaultState) {
   const [matches, setMatches] = useState(() => {
@@ -88,9 +89,12 @@ function Video() {
   const [activeVariant, setActiveVariant] = useState(null);
   const [isIntersecting, setIsIntersecting] = useState(true);
   const [mobileVideoLoading, setMobileVideoLoading] = useState(true);
+  const [isMobileVideoReady, setIsMobileVideoReady] = useState(false);
+  const [showMobilePoster, setShowMobilePoster] = useState(true);
   const videoRef = useRef(null);
   const mobileVideoRef = useRef(null);
   const containerRef = useRef(null);
+  const posterHideTimeoutRef = useRef(null);
 
   const shouldShowVideo =
     Boolean(activeVariant) && isIntersecting && canUseInteractiveVideo;
@@ -191,38 +195,79 @@ function Video() {
     }
 
     const video = mobileVideoRef.current;
-
-    const handleCanPlay = () => {
-      setMobileVideoLoading(false);
+    const setPosterVisible = (visible) => {
+      setShowMobilePoster(visible);
     };
 
     const handleLoadStart = () => {
       setMobileVideoLoading(true);
+      setIsMobileVideoReady(false);
+      setPosterVisible(true);
     };
 
     const handleWaiting = () => {
       setMobileVideoLoading(true);
     };
 
-    const handlePlaying = () => {
+    const handleCanPlay = () => {
+      // Some browsers fire canplay before canplaythrough; use as soft-ready signal
+      setIsMobileVideoReady(true);
       setMobileVideoLoading(false);
+      if (video.paused) {
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {});
+        }
+      }
     };
 
-    video.addEventListener('canplay', handleCanPlay);
+    const handleCanPlayThrough = () => {
+      setIsMobileVideoReady(true);
+      setMobileVideoLoading(false);
+      if (video.paused) {
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {});
+        }
+      }
+    };
+
+    const handlePlaying = () => {
+      setMobileVideoLoading(false);
+      if (posterHideTimeoutRef.current) {
+        clearTimeout(posterHideTimeoutRef.current);
+      }
+      posterHideTimeoutRef.current = window.setTimeout(() => {
+        setPosterVisible(false);
+      }, 120);
+    };
+
+    const handleError = () => {
+      setMobileVideoLoading(false);
+      setIsMobileVideoReady(false);
+      setPosterVisible(true);
+    };
+
     video.addEventListener('loadstart', handleLoadStart);
     video.addEventListener('waiting', handleWaiting);
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('canplaythrough', handleCanPlayThrough);
     video.addEventListener('playing', handlePlaying);
+    video.addEventListener('error', handleError);
 
-    // Check if video is already loaded
-    if (video.readyState >= 3) {
-      setMobileVideoLoading(false);
-    }
+    // Kick off loading explicitly to ensure buffering begins behind the poster
+    video.load();
 
     return () => {
-      video.removeEventListener('canplay', handleCanPlay);
+      if (posterHideTimeoutRef.current) {
+        clearTimeout(posterHideTimeoutRef.current);
+      }
       video.removeEventListener('loadstart', handleLoadStart);
       video.removeEventListener('waiting', handleWaiting);
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('canplaythrough', handleCanPlayThrough);
       video.removeEventListener('playing', handlePlaying);
+      video.removeEventListener('error', handleError);
     };
   }, [canUseInteractiveVideo]);
 
@@ -264,29 +309,45 @@ function Video() {
         </>
       ) : (
         <div className={styles.mobileVideoContainer}>
-          {mobileVideoLoading && (
-            <div className={styles.videoLoader}>
-              <div className={styles.spinner} />
-              <p className={styles.loadingText}>Loading...</p>
+          <div
+            className={`${styles.mobilePoster} ${
+              showMobilePoster ? '' : styles.mobilePosterHidden
+            }`}
+            aria-hidden={showMobilePoster ? 'false' : 'true'}
+            data-visible={showMobilePoster}
+          >
+            <img
+              src={MOBILE_POSTER_IMAGE}
+              alt="Halloween Nights placeholder"
+              loading="lazy"
+              decoding="async"
+              className={styles.posterImage}
+            />
+            <div className={styles.posterOverlay}>
+              <p className={styles.posterEyebrow}>Data Science Club presents</p>
+              <p className={styles.posterTitle}>Halloween Nights</p>
             </div>
-          )}
+          </div>
           <video
             ref={mobileVideoRef}
             src="/WhatsApp Video 2025-11-23 at 10.mp4"
-            autoPlay
+            autoPlay={false}
             muted
             loop
             playsInline
             controls={false}
             preload="auto"
-            poster=""
+            poster={MOBILE_POSTER_IMAGE}
             disablePictureInPicture
             disableRemotePlayback
             className={styles.mobileVideo}
+            data-ready={isMobileVideoReady}
+            aria-busy={!isMobileVideoReady}
             style={{
               willChange: 'auto',
-              opacity: mobileVideoLoading ? 0 : 1,
-              transition: 'opacity 0.3s ease-in-out',
+              opacity: showMobilePoster ? 0 : 1,
+              transition: 'opacity 0.6s ease, transform 0.6s ease',
+              transform: showMobilePoster ? 'scale(1.04)' : 'scale(1)',
             }}
           >
             <track kind="captions" />
