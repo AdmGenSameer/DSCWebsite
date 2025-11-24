@@ -12,6 +12,17 @@
   width: fit-content;
 }
 
+.desktopOnlyColumn {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .desktopOnlyColumn {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .copyrightBottom {
   @apply flex flex-wrap justify-between items-center w-full pt-20 pb-8;
   @apply sm:pt-12 sm:pb-0;

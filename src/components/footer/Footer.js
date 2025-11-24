@@ -13,7 +13,7 @@ function Footer() {
             <h3 className="text-2xl">Write</h3>
             <h4 className="text-lg font-extralight">
               <a href="mailto:datascienceclub@vitbhopal.ac.in">
-                datascienceclub@vitbhopal.ac.in
+                dsc.vitb@vitbhopal.ac.in
               </a>
             </h4>
           </div>
@@ -27,7 +27,9 @@ function Footer() {
             </h4>
           </div>
         </div>
-        <div className="flex-4 md:flex-1 md:mx-4 sm:mx-0 sm:mt-8">
+        <div
+          className={`${Styles.desktopOnlyColumn} flex-4 md:flex-1 md:mx-4 sm:mx-0 sm:mt-8`}
+        >
           <h3 className="text-2xl">Other Pages</h3>
           <Link
             to="/events"
@@ -36,7 +38,7 @@ function Footer() {
             Events
           </Link>
           <a
-            href="https://blog.hnccbits.com"
+            href="#"
             className="pl-1 block text-lg my-1 font-extralight"
             target="_blank"
             rel="noopener noreferrer"
@@ -52,7 +54,7 @@ function Footer() {
             VIT Bhopal
           </a>
         </div>
-        <div className="flex-4 md:flex-1 sm:mt-8">
+        <div className={`${Styles.desktopOnlyColumn} flex-4 md:flex-1 sm:mt-8`}>
           <h3 className="text-2xl">Get Help</h3>
           <a
             href="#"

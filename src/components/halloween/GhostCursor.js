@@ -1,23 +1,57 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './GhostCursor.module.css';
 
 function GhostCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const cursorRef = useRef(null);
 
   useEffect(() => {
-    // Hide the default cursor
+    const cursorElement = cursorRef.current;
+    if (!cursorElement || typeof window === 'undefined') {
+      return undefined;
+    }
+
+    const prefersReducedMotion =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasFinePointer =
+      window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+
+    if (prefersReducedMotion || !hasFinePointer) {
+      cursorElement.style.display = 'none';
+      return undefined;
+    }
+
     document.body.style.cursor = 'none';
 
-    const handleMouseMove = (e) => {
-      setPosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
+    let animationFrame = null;
+    let latestPosition = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
+    const updateCursor = () => {
+      animationFrame = null;
+      cursorElement.style.transform = `translate3d(${latestPosition.x}px, ${latestPosition.y}px, 0) translate(-50%, -50%)`;
+    };
+
+    const handleMouseMove = (event) => {
+      latestPosition = {
+        x: event.clientX,
+        y: event.clientY,
+      };
+
+      if (animationFrame === null) {
+        animationFrame = requestAnimationFrame(updateCursor);
+      }
+    };
+
+    document.addEventListener('mousemove', handleMouseMove, { passive: true });
+    updateCursor();
 
     return () => {
+      if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
+      }
       document.removeEventListener('mousemove', handleMouseMove);
       document.body.style.cursor = 'auto';
     };
@@ -25,11 +59,8 @@ function GhostCursor() {
 
   return (
     <div
+      ref={cursorRef}
       className={styles.ghostCursor}
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-      }}
     >
       {/* Ghost body */}
       <div className={styles.ghostBody}>

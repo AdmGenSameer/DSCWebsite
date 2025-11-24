@@ -1,4 +1,5 @@
-import { useRef, useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import GalleryImages from '../../lib/data/GalleryData';
 import BottomGlitter from '../StyledText/BottomGlitter';
 import styles from './grid-gallery.module.css';
@@ -308,6 +309,29 @@ function GridImage({ src, mobileSrc, title, index, onClick }) {
 
 function Lightbox({ images, currentIndex, onClose, onNavigate }) {
   const currentImage = images[currentIndex];
+  const [portalNode] = useState(() => {
+    if (typeof document === 'undefined') {
+      return null;
+    }
+    const node = document.createElement('div');
+    node.setAttribute('data-lightbox-root', '');
+    return node;
+  });
+
+  useEffect(() => {
+    if (!portalNode || typeof document === 'undefined') {
+      return undefined;
+    }
+
+    document.body.appendChild(portalNode);
+    return () => {
+      document.body.removeChild(portalNode);
+    };
+  }, [portalNode]);
+
+  if (!currentImage || !portalNode) {
+    return null;
+  }
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -315,7 +339,7 @@ function Lightbox({ images, currentIndex, onClose, onNavigate }) {
     }
   };
 
-  return (
+  const content = (
     <div className={styles.lightboxOverlay} onClick={handleBackdropClick}>
       <button
         type="button"
@@ -359,4 +383,6 @@ function Lightbox({ images, currentIndex, onClose, onNavigate }) {
       </div>
     </div>
   );
+
+  return createPortal(content, portalNode);
 }
