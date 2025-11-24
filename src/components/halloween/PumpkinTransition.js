@@ -41,14 +41,14 @@ function PumpkinTransition({ onComplete }) {
       const delta = e.deltaY || e.detail || e.wheelDelta;
 
       if (delta > 0) {
-        // Scrolling down - progress animation (slower: 0.008 instead of 0.02)
+        // Scrolling down - progress animation (snappier: 0.02 for better responsiveness)
         setScrollProgress((prev) => {
-          const newProgress = Math.min(prev + 0.008, 1);
+          const newProgress = Math.min(prev + 0.02, 1);
           if (newProgress >= 1 && !animationComplete) {
             animationComplete = true;
             setTimeout(() => {
               if (onComplete) onComplete();
-            }, 800);
+            }, 500); // Reduced from 800ms to 500ms for snappier transition
           }
           return newProgress;
         });
@@ -175,68 +175,68 @@ function PumpkinTransition({ onComplete }) {
     const easeOutQuad = (t) => t * (2 - t); // Smooth easing function
 
     if (progress < 0.3) {
-      // Phase 1: Fade in and grow (slower, smoother)
+      // Phase 1: Fade in and grow (snappier with shorter duration)
       const phase1Progress = easeOutQuad(progress / 0.3);
       gsap.to(pumpkin, {
         scale: 0.3 + phase1Progress * 0.7,
         opacity: phase1Progress,
         filter: `brightness(${0.5 + phase1Progress * 0.5})`,
-        duration: 0.3,
+        duration: 0.15, // Reduced from 0.3 for snappier feel
         ease: 'power2.out',
       });
       gsap.to(fire, {
         scale: 0.8 + phase1Progress * 0.4,
         opacity: phase1Progress,
-        duration: 0.3,
+        duration: 0.15, // Reduced from 0.3 for snappier feel
         ease: 'power2.out',
       });
     } else if (progress < 0.6) {
-      // Phase 2: Grow larger (smoother)
+      // Phase 2: Grow larger (snappier with shorter duration)
       const phase2Progress = easeOutQuad((progress - 0.3) / 0.3);
       gsap.to(pumpkin, {
         scale: 1 + phase2Progress * 1.5,
         opacity: 1,
         filter: 'brightness(1)',
-        duration: 0.4,
+        duration: 0.2, // Reduced from 0.4 for snappier feel
         ease: 'power2.inOut',
       });
       gsap.to(fire, {
         scale: 1.2 + phase2Progress * 1.6,
         opacity: 1,
-        duration: 0.4,
+        duration: 0.2, // Reduced from 0.4 for snappier feel
         ease: 'power2.inOut',
       });
       gsap.to(mouth, {
         opacity: phase2Progress,
         filter: `brightness(${1 + phase2Progress})`,
-        duration: 0.3,
+        duration: 0.15, // Reduced from 0.3 for snappier feel
         ease: 'power2.out',
       });
     } else {
-      // Phase 3: Zoom and blackout (smoother)
+      // Phase 3: Zoom and blackout (snappier with shorter duration)
       const phase3Progress = easeOutQuad((progress - 0.6) / 0.4);
       gsap.to(pumpkin, {
         scale: 2.5 + phase3Progress * 2.5,
         opacity: 1,
         filter: 'brightness(1)',
-        duration: 0.5,
+        duration: 0.25, // Reduced from 0.5 for snappier feel
         ease: 'power2.in',
       });
       gsap.to(fire, {
         scale: 2.8 + phase3Progress * 2,
         opacity: 1,
-        duration: 0.5,
+        duration: 0.25, // Reduced from 0.5 for snappier feel
         ease: 'power2.in',
       });
       gsap.to(mouth, {
         opacity: 1,
         filter: 'brightness(2)',
-        duration: 0.3,
+        duration: 0.15, // Reduced from 0.3 for snappier feel
         ease: 'power2.out',
       });
       gsap.to(blackout, {
         opacity: phase3Progress,
-        duration: 0.4,
+        duration: 0.2, // Reduced from 0.4 for snappier feel
         ease: 'power2.inOut',
       });
     }

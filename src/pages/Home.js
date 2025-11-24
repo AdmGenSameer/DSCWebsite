@@ -42,10 +42,10 @@ export default function Home() {
     setShowTransition(false);
     setTransitionComplete(true);
 
-    // Delay content visibility for smooth fade-in
+    // Delay content visibility for paper-like smooth fade-in
     setTimeout(() => {
       setContentVisible(true);
-    }, 100);
+    }, 200); // Slightly increased delay for smoother appearance
   };
 
   return (
@@ -72,8 +72,13 @@ export default function Home() {
         <div
           style={{
             opacity: contentVisible ? 1 : 0,
-            transform: contentVisible ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 1.2s ease-out, transform 1.2s ease-out',
+            transform: contentVisible
+              ? 'translateY(0) scale(1)'
+              : 'translateY(30px) scale(0.98)',
+            filter: contentVisible ? 'blur(0px)' : 'blur(8px)',
+            transition:
+              'opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), filter 1.5s cubic-bezier(0.4, 0, 0.2, 1)',
+            willChange: 'opacity, transform, filter',
           }}
         >
           <HalloweenBackground isHomePage>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Helmet } from 'react-helmet-async';
 
@@ -13,6 +13,17 @@ import EventsData from '../lib/data/EventsData';
 import HalloweenBackground from '../components/halloween/HalloweenBackground';
 
 function Events() {
+  useEffect(() => {
+    // Force immediate scroll to top and ensure scrolling is responsive
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // Ensure smooth scrolling is enabled after initial mount
+    document.documentElement.style.scrollBehavior = 'smooth';
+    document.body.style.scrollBehavior = 'smooth';
+  }, []);
+
   return (
     <HalloweenBackground>
       <Screen>

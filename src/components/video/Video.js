@@ -42,7 +42,7 @@ function Video() {
 
   return (
     <section className={styles.video}>
-      {documentWidth >= 600 && (
+      {documentWidth >= 600 ? (
         <div id="videoContainer" className={styles.designVideoContainer}>
           <video
             src="/video/design.mp4"
@@ -80,6 +80,20 @@ function Video() {
             className={
               video === 'code' ? 'w-screen opacity-100' : 'w-0 opacity-0'
             }
+          >
+            <track kind="captions" />
+          </video>
+        </div>
+      ) : (
+        <div className={styles.mobileVideoContainer}>
+          <video
+            src="/WhatsApp Video 2025-11-23 at 10.41.31 PM.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls={false}
+            className={styles.mobileVideo}
           >
             <track kind="captions" />
           </video>
