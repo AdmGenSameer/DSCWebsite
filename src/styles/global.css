@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&family=Cinzel:wght@400;500;600;700;800;900&family=Special+Elite&display=swap');
 
 /* ./styles/globals.css */
 @tailwind base;
@@ -10,10 +10,48 @@
   margin: 0;
   box-sizing: border-box;
   color: #fff;
-  font-family: 'Overpass', sans-serif;
+  font-family: 'Cinzel', serif;
   scroll-behavior: smooth;
   cursor: none !important;
   max-width: 100%;
+}
+
+/* Halloween-themed typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Creepster', cursive;
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* For less spooky headings that need readability */
+.readable-heading {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
+
+/* For extremely spooky titles */
+.extra-spooky {
+  font-family: 'Nosifer', cursive;
+  letter-spacing: 0.1em;
+}
+
+/* For vintage horror feel */
+.vintage-horror {
+  font-family: 'Butcherman', cursive;
+}
+
+/* Body text with character */
+p,
+span,
+a,
+button {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.02em;
 }
 
 body {
