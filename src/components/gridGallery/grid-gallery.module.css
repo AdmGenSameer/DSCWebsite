@@ -738,6 +738,7 @@ button.navButton:focus,
   opacity: 0.3;
   animation: webPattern 20s linear infinite;
   pointer-events: none;
+  z-index: 0;
 }
 
 @keyframes webPattern {
@@ -858,6 +859,8 @@ button.navButton:focus,
   align-items: center;
   gap: 1.5rem;
   animation: scaleIn 0.3s ease-out;
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes scaleIn {

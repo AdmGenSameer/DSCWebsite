@@ -123,7 +123,7 @@ function Navbar() {
           CONTACT US
         </Link>
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfdUNFQFgNsVL0bTEqHksGHCm3BXGyiOyjyTycg2hfFZ9qlPg/viewform"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfVGmKX9ENVutxSPSqFe60VgJImifX5PQc3Nk3SZmK7n4vxsQ/viewform"
           target="_blank"
           className="flex rounded-full"
           rel="noreferrer"
@@ -134,7 +134,7 @@ function Navbar() {
             /* For christams Theme */
             className="bg-primary-light text-primary"
           >
-            <span style={SpanStyle}>Join Us</span>
+            <span style={SpanStyle}>Participate</span>
           </Button>
         </a>
       </div>
