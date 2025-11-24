@@ -6,12 +6,12 @@ function FlyingBats({ count = 5 }) {
 
   useEffect(() => {
     // Generate random bat configurations with varied paths
-    // Distribute bats across the entire page height (0-400vh)
+    // Distribute bats across limited page height to not go below footer (0-280vh)
     const paths = ['path1', 'path2', 'path3', 'path4'];
     const generatedBats = Array.from({ length: count }, (_, index) => ({
       id: `bat-${index}-${Math.random()}`,
       startX: Math.random() * 100,
-      startY: Math.random() * 400 + 10, // Distribute across 400vh
+      startY: Math.random() * 270 + 10, // Distribute across 280vh max
       duration: Math.random() * 10 + 8, // 8-18 seconds for faster movement
       delay: Math.random() * 6,
       size: Math.random() * 0.4 + 0.5, // 0.5-0.9x size

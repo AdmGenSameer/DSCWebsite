@@ -6,6 +6,7 @@ import SpiderWeb from './SpiderWeb';
 
 function HalloweenBackground({ children }) {
   // Strategic pumpkin positions - distributed throughout the page
+  // Limited to not extend below footer (max 300vh)
   const pumpkinPositions = [
     { id: 'pumpkin-1', top: '30vh', left: '8%', size: 'small', mobile: true },
     { id: 'pumpkin-2', top: '80vh', left: '90%', size: 'medium', mobile: true },
@@ -51,51 +52,10 @@ function HalloweenBackground({ children }) {
       size: 'small',
       mobile: false,
     },
-    {
-      id: 'pumpkin-9',
-      top: '310vh',
-      left: '8%',
-      size: 'medium',
-      mobile: false,
-    },
-    {
-      id: 'pumpkin-10',
-      top: '340vh',
-      left: '87%',
-      size: 'small',
-      mobile: false,
-    },
-    {
-      id: 'pumpkin-11',
-      top: '370vh',
-      left: '10%',
-      size: 'medium',
-      mobile: false,
-    },
-    {
-      id: 'pumpkin-12',
-      top: '400vh',
-      left: '85%',
-      size: 'small',
-      mobile: false,
-    },
-    {
-      id: 'pumpkin-13',
-      top: '430vh',
-      left: '12%',
-      size: 'medium',
-      mobile: false,
-    },
-    {
-      id: 'pumpkin-14',
-      top: '460vh',
-      left: '88%',
-      size: 'small',
-      mobile: false,
-    },
   ];
 
   // Random spider web positions - better distributed across the page
+  // Limited to not extend below footer (max 300vh)
   const spiderWebPositions = [
     { id: 'web-1', top: '25vh', left: '5%' },
     { id: 'web-2', top: '60vh', right: '7%' },
@@ -104,11 +64,7 @@ function HalloweenBackground({ children }) {
     { id: 'web-5', top: '180vh', left: '8%' },
     { id: 'web-6', top: '220vh', right: '10%' },
     { id: 'web-7', top: '260vh', left: '18%' },
-    { id: 'web-8', top: '300vh', right: '15%' },
-    { id: 'web-9', top: '340vh', left: '12%' },
-    { id: 'web-10', top: '380vh', right: '10%' },
-    { id: 'web-11', top: '420vh', left: '20%' },
-    { id: 'web-12', top: '460vh', right: '18%' },
+    { id: 'web-8', top: '290vh', right: '15%' },
   ];
 
   return (
