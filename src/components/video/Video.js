@@ -94,7 +94,9 @@ function Video() {
     Boolean(activeVariant) && isIntersecting && canUseInteractiveVideo;
 
   const handleActivate = useCallback((variantId) => {
-    setActiveVariant((current) => (current === variantId ? current : variantId));
+    setActiveVariant((current) =>
+      current === variantId ? current : variantId
+    );
   }, []);
 
   const handleDeactivate = useCallback(() => {
@@ -225,8 +227,14 @@ function Video() {
             loop
             playsInline
             controls={false}
-            preload="metadata"
+            preload="auto"
+            poster=""
+            disablePictureInPicture
+            disableRemotePlayback
             className={styles.mobileVideo}
+            style={{
+              willChange: 'auto',
+            }}
           >
             <track kind="captions" />
           </video>
