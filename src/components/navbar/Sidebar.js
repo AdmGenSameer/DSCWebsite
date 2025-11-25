@@ -70,7 +70,7 @@ function Sidebar({ isMounted, unmount }) {
               unmount();
             }}
           >
-            <img src={Logo} alt="HnCC" height="60" width="60" />
+            <img src={Logo} alt="DSC" height="60" width="60" />
           </Link>
         </div>
         <div onClick={unmount} className="cursor-pointer">

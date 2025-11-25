@@ -80,7 +80,7 @@ function Navbar() {
           className="flex items-center"
           onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
         >
-          <img src={Logo} alt="HnCC" height="60" width="60" />
+          <img src={Logo} alt="DSC" height="60" width="60" />
           <h2 id="hnccTitle" className={styles.navTitle}>
             Data Science Club
           </h2>

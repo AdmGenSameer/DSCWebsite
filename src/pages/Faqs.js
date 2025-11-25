@@ -8,15 +8,18 @@ import styles from '../styles/faq.module.css';
 
 function FAQs() {
   useEffect(() => {
-    jQuery(`.${styles.title}`).on('click', function titleClicked() {
+    const handleTitleClick = function titleClicked(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
       const clickedElement = jQuery(this);
       // console.log(clickedElement);
       /* 
-	    	Initially removing rotate-clockwise class from all dropdown icons
-			  inside the accordion, it is to make sure that if the user clicks
-			  on any other header except the opened one, the opened one's icon also
-			  rotated to it's previous state
-		  */
+        Initially removing rotate-clockwise class from all dropdown icons
+        inside the accordion, it is to make sure that if the user clicks
+        on any other header except the opened one, the opened one's icon also
+        rotated to it's previous state
+      */
       clickedElement
         .parent()
         .parent()
@@ -25,10 +28,10 @@ function FAQs() {
 
       if (clickedElement.parent().hasClass(styles.active)) {
         /*
-			      If one accordion is already open and the same ACCORDION HEADER is clicked,
-			      then remove the active class from the ACCORDION ITEM and also remove the
-			      rotate-90 class from it's icon and slide the ACCORDION CONTENT upwards.
-		    */
+            If one accordion is already open and the same ACCORDION HEADER is clicked,
+            then remove the active class from the ACCORDION ITEM and also remove the
+            rotate-90 class from it's icon and slide the ACCORDION CONTENT upwards.
+        */
         clickedElement.children().last().removeClass('rotate-90');
         clickedElement.parent().removeClass(styles.active);
         clickedElement.next().slideUp(280);
@@ -47,7 +50,15 @@ function FAQs() {
         clickedElement.parent().addClass(styles.active);
         clickedElement.next().slideDown(280);
       }
-    });
+    };
+
+    const titleElements = jQuery(`.${styles.title}`);
+    titleElements.on('click', handleTitleClick);
+
+    // Cleanup function to remove event handlers
+    return () => {
+      titleElements.off('click', handleTitleClick);
+    };
   }, []);
 
   return (

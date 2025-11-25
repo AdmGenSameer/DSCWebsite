@@ -6,7 +6,7 @@ function SocialsBar() {
   return (
     <section className={Styles.socialsBar}>
       {/* <a
-        href="https://www.facebook.com/hnccbits/"
+        href="#"
         target="_blank"
         rel="noreferrer"
       >

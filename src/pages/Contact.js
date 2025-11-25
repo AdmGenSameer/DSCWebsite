@@ -143,7 +143,7 @@ function ThankYou({ show }) {
       <p className="mt-20 w-3/5 text-lg xl:w-3/5 sm:w-3/4 sm:text-base">
         Feel free to explore some interesting topics on our{' '}
         <span>
-          <a className="text-blue" href="https://blog.hnccbits.com/">
+          <a className="text-blue" href="#">
             blog
           </a>
         </span>{' '}
