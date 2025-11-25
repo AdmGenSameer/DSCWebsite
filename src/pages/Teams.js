@@ -7,6 +7,7 @@ import Styles from '../components/teams/Team.module.css';
 import { TeamData } from '../lib/data/TeamData';
 import HalloweenBackground from '../components/halloween/HalloweenBackground';
 import { getCloudinaryImage } from '../components/teams/GetCloudinaryImage';
+import technicalTeamImage from '../assets/Team/WhatsApp Image 2025-11-24 at 10.42.20 PM.jpeg';
 
 function Teams() {
   return (
@@ -61,10 +62,14 @@ function Teams() {
           <h2 className={Styles.postHead}>Technical Team</h2>
           <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
             {TeamData.technicalTeam.map((item, index) => {
+              // Use local import for technical team image
+              const imageSource = item.image.startsWith('Team/')
+                ? technicalTeamImage
+                : getCloudinaryImage(item.image);
               return (
                 <TeamCard
                   key={`${String(index)}-team`}
-                  image={getCloudinaryImage(item.image)}
+                  image={imageSource}
                   name={item.name}
                   role={item.role}
                 />
