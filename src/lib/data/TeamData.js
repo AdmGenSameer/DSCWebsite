@@ -89,7 +89,7 @@ export const PanelMembers = [
 export const technicalTeam = [
   {
     id: 12,
-    name: 'Technical Team Member',
+    name: 'Sameer Chaudhary',
     teamName: 'Technical',
     role: 'Co-Lead',
     image: 'Team/WhatsApp Image 2025-11-24 at 10.42.20 PM.jpeg',
